@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Fast local search engine for ZAU Console.
  * Supports exact, prefix, word-boundary, partial, multi-token, fuzzy subsequence,

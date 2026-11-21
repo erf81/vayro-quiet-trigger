@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * ZAU Console 2.0 — Shared Aurora Design System & Theme Schema
  * Used identically by both the Photoshop UXP docked panel and the Windows WPF floating palette.

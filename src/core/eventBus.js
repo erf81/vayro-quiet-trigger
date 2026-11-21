@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Lightweight event bus with explicit unsubscribe to prevent memory leaks.
  */

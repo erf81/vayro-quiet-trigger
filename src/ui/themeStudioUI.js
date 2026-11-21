@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * ZAU Theme Studio UI Controller (UXP Panel).
  * Provides 6 built-in presets, validated HEX color editor + quick swatches

@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Packages ZAU Console into an installable Adobe Creative Cloud Extension (.ccx).
  * A .ccx file is a standard ZIP archive containing manifest.json at its root.

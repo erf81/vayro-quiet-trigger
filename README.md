@@ -129,14 +129,26 @@ See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for complete automated (28/28) an
 - [docs/INSTALLATION.md](docs/INSTALLATION.md) — Complete installation & uninstall guide
 - [docs/UPGRADE.md](docs/UPGRADE.md) — Upgrading safely from ZAU Console 2.0.0
 - [docs/THEME_STUDIO.md](docs/THEME_STUDIO.md) — VAYRO Theme Studio presets & customization
-- [docs/BRANDING.md](docs/BRANDING.md) — VAYRO & Quiet Trigger brand architecture & preliminary name review
+- [docs/BRANDING.md](docs/BRANDING.md) — VAYRO & Quiet Trigger brand architecture & naming review
 - [docs/COMMAND_REFERENCE.md](docs/COMMAND_REFERENCE.md) — 98-command verification matrix
 - [docs/TEST_REPORT.md](docs/TEST_REPORT.md) — Automated (28/28) & live Windows 10 + Photoshop 2025 test evidence
-- [SECURITY.md](SECURITY.md) — Local bridge security model & third-party notices
+- [CONTRIBUTING.md](CONTRIBUTING.md) — Contribution & PR review guide
+- [SECURITY.md](SECURITY.md) — Local bridge security model & vulnerability reporting
+- [TRADEMARKS.md](TRADEMARKS.md) — Brand & trademark notice
+- [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt) — Third-party runtime & installer notices
 - [CHANGELOG.md](CHANGELOG.md) — Full version history (`2.1.0`, `2.0.0`, `1.0.0`)
 
 ---
 
-## License Status
-**Unlicensed (All Rights Reserved — Pending Owner Decision).**
-No open-source or commercial license has been selected yet for **Quiet Trigger by VAYRO**. This repository is maintained as a private staging repository until an explicit license is chosen by the owner. Bundled third-party components (such as the portable Node.js runtime) retain their respective upstream licenses; see [installer/THIRD_PARTY_NOTICES.txt](installer/THIRD_PARTY_NOTICES.txt).
+## License & Trademark Notice
+
+### Source Code License — Apache License 2.0
+**Copyright 2026 erf81**
+
+The original source code of **Quiet Trigger by VAYRO** is licensed under the **Apache License, Version 2.0**. See [LICENSE](LICENSE) for the full official license text and [NOTICE](NOTICE) for attribution details.
+
+### Third-Party Components
+Bundled third-party components in binary installers (including the portable **Node.js v24.20.0** runtime under the MIT License and the **Inno Setup 6.7.3** installer stub under the Inno Setup License) remain subject to their respective upstream licenses and are **not** covered by `erf81`'s copyright or Apache-2.0. See [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
+
+### Trademark & Brand Notice
+**VAYRO** and **Quiet Trigger** are names used to identify this project. The Apache License 2.0 applies to the project's source code and does not grant permission to use these names, logos, or visual identity in a way that suggests official affiliation or endorsement. Forks and modified distributions should use their own names and branding. This notice does not claim trademark registration or establish exclusive trademark rights. See [TRADEMARKS.md](TRADEMARKS.md) for details.

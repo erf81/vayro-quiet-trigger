@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Settings & ZAU Theme Studio Drawer Controller for ZAU Console 2.0.
  * Clicking the gear icon opens ZAU Theme Studio by default, with a one-click

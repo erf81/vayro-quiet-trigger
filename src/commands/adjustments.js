@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Category C: Adjustments
  * Creates non-destructive Adjustment Layers via batchPlay so edits remain

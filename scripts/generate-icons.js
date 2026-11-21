@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * VAYRO — Quiet Trigger 2.1.0 Brand & Icon Asset Generator (Zero Dependencies)
  *

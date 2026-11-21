@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Persian (Farsi) to English search alias expansion table.
  * Normalizes Persian/Arabic character variants so users can type natural Persian queries.

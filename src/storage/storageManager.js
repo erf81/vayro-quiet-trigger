@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Persistent Storage Manager for ZAU Console 2.0.
  * Uses Photoshop UXP localFileSystem.getDataFolder() as primary store,

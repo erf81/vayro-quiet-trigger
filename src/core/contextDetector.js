@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Photoshop Document & Layer Context Detector.
  * Uses event-driven Photoshop notification listeners (no background polling).

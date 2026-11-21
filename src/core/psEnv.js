@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Safe environment adapter for Adobe Photoshop UXP APIs.
  * Allows the core modules to run both inside Photoshop UXP and in Node.js unit tests.

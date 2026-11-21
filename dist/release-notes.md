@@ -3,8 +3,8 @@
 - **Brand / Product**: **Quiet Trigger by VAYRO** (*"Less searching. More creating."*)
 - **Version**: `2.1.0`
 - **Target Host**: Adobe Photoshop 2025 v26.8.1 (compatible with Photoshop 24.0+ · UXP Manifest v5 · API v2) on Windows 10/11 x64
-- **Code Signing Status**: Unsigned staging build (verify integrity with SHA-256 checksums below)
-- **License Notice**: Unlicensed pending an explicit license decision by the owner prior to public release. Third-party runtime notices included in `installer/THIRD_PARTY_NOTICES.txt`.
+- **Code Signing Status**: Unsigned open-source build (verify integrity with SHA-256 checksums below)
+- **License**: **Apache License 2.0** (`Copyright 2026 erf81`) for original source code. See [LICENSE](../LICENSE), [TRADEMARKS.md](../TRADEMARKS.md), and [THIRD_PARTY_NOTICES.txt](../THIRD_PARTY_NOTICES.txt) for bundled third-party components (Node.js v24.20.0 MIT, Inno Setup 6.7.3).
 
 ## Download Options
 

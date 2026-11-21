@@ -20,6 +20,11 @@ All notable changes to **Quiet Trigger by VAYRO** (formerly *ZAU Console*) are d
 - Added official Adobe `UnifiedPluginInstallerAgent.exe` install/upgrade script (`installer/scripts/install-uxp-plugin.ps1`) with pre-install `PluginData` JSON backup & atomic restore, plus clean uninstaller (`uninstall-uxp-plugin.ps1`) preserving user settings by default.
 - Added safe atomic migration from `%LOCALAPPDATA%\ZAU-Console\` → `%LOCALAPPDATA%\VAYRO\Quiet Trigger\` and secure local first-run pairing into user-private Photoshop UXP `PluginData` (zero credentials logged or embedded).
 
+### Licensing, Governance & CI Preparation
+- Adopted **Apache License, Version 2.0** (`Copyright 2026 erf81`, `SPDX-License-Identifier: Apache-2.0`) for all original source code (`LICENSE`, `NOTICE`, `package.json`, and SPDX headers across 33 original source files).
+- Added [TRADEMARKS.md](TRADEMARKS.md) and root [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt) separating original Apache-2.0 code from **VAYRO** / **Quiet Trigger** brand names and bundled third-party components (Node.js v24.20.0 MIT, Inno Setup 6.7.3).
+- Added minimal-permission GitHub Actions CI workflows (`.github/workflows/ci.yml` for automated tests, license/metadata checks, CCX packaging & Gitleaks full-history secret scanning; `.github/workflows/dependency-review.yml`) plus `.gitleaks.toml` allowing only the documented synthetic test fixture.
+
 ### Verification (Windows 10 x64 + Adobe Photoshop 2025 v26.8.1)
 - **28 / 28** automated tests passing (`node --test tests/*.test.js`).
 - **Stage A (Upgrade from ZAU Console 2.0.0)**: Verified zero duplicate plugin (`Enabled Quiet Trigger 2.1.0`), exact token preservation, `migration-backup-v2.0.0`, 4 Favorites preserved, HKCU Run startup, Start Menu shortcuts, bundled `runtime\node.exe`, and single-instance Mutex.

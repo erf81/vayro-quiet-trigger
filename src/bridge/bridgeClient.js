@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Optional Local Loopback WebSocket Client for ZAU Windows Hotkey Helper.
  * Connects ONLY to 127.0.0.1 with an authenticated session token when enabled by the user.

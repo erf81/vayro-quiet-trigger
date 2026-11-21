@@ -2,31 +2,44 @@ VAYRO — QUIET TRIGGER 2.1.0
 THIRD-PARTY SOFTWARE NOTICES AND LICENSES
 ===============================================================================
 
-Quiet Trigger by VAYRO bundles or interacts with the following third-party
-components. All trademarks belong to their respective owners.
+The original source code of Quiet Trigger by VAYRO is licensed under the
+Apache License, Version 2.0 (Copyright 2026 erf81; see LICENSE and NOTICE).
+
+The third-party components below are NOT covered by erf81's copyright or
+Apache License 2.0; each remains governed by its own upstream license and
+copyright notices. All trademarks belong to their respective owners.
 
 1. Node.js Portable Runtime (v24.20.0)
    Website : https://nodejs.org/
-   License : MIT License
+   License : MIT License (plus upstream open-source licenses for bundled
+             subcomponents such as V8, libuv, OpenSSL, zlib, etc.)
    Notice  : Copyright Node.js contributors. All rights reserved.
-   Summary : Bundled as a local runtime (runtime\node.exe) solely to run the
-             loopback-only local communication bridge (127.0.0.1:47821) so
-             end users do not need to install Node.js globally.
-   Included subcomponents (V8, libuv, OpenSSL, zlib, etc.) are redistributed
-   under their respective open-source licenses as distributed by the Node.js
-   project (https://github.com/nodejs/node/blob/main/LICENSE).
+   Usage   : Bundled inside the Windows EXE installer (runtime\node.exe)
+             exclusively to run the local loopback communication bridge
+             (127.0.0.1:47821) so end users do not need a global Node.js
+             installation.
+   Full upstream license text:
+             https://github.com/nodejs/node/blob/main/LICENSE
 
-2. Inno Setup (Installer Framework)
+2. Inno Setup (Installer Framework, v6.7.3)
    Website : https://jrsoftware.org/isinfo.php
-   License : Inno Setup License (Copyright (C) 1997-2026 Jordan Russell;
-             Portions Copyright (C) 2000-2026 Martijn Laan)
+   License : Inno Setup License
+             Copyright (C) 1997-2026 Jordan Russell. All rights reserved.
+             Portions Copyright (C) 2000-2026 Martijn Laan. All rights reserved.
+   Status  : The open-source Inno Setup License grants permission to use and
+             redistribute Inno Setup for any purpose (including commercial
+             applications) while retaining copyright notices. Starting in
+             version 6.5+, the Inno Setup maintainers display a
+             "Non-commercial use only" banner and request that commercial /
+             business distributors purchase a paid commercial license.
+             Quiet Trigger 2.1.0 is distributed as a free open-source project;
+             any future commercial distribution should either obtain a
+             commercial Inno Setup license or migrate to an alternative
+             installer tool (such as WiX Toolset or NSIS).
 
-3. Adobe Photoshop & Adobe UXP
-   Adobe and Photoshop are registered trademarks of Adobe Inc.
-   Quiet Trigger by VAYRO is an independent third-party plugin and is not
-   affiliated with, endorsed by, or sponsored by Adobe Inc.
-
-===============================================================================
-Quiet Trigger by VAYRO — Licensing Status:
-No open-source or commercial distribution license has been selected yet for
-the Quiet Trigger source code itself pending an explicit owner decision.
+3. Adobe Photoshop & Adobe UXP Runtime Host
+   Notice  : Adobe and Photoshop are registered trademarks of Adobe Inc.
+             Quiet Trigger by VAYRO invokes Photoshop's public UXP APIs at
+             runtime and does not redistribute Adobe SDK source files.
+             Quiet Trigger is an independent project and is not affiliated
+             with, endorsed by, or sponsored by Adobe Inc.

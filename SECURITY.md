@@ -17,4 +17,9 @@
 ## Windows Security & Code Signing Status
 - **Per-User Privileges**: Both the installer (`PrivilegesRequired=lowest`) and `QuietTriggerHelper.exe` run under standard user privileges with zero UAC elevation, zero Windows services, and zero global PowerShell execution-policy changes.
 - **Unsigned Staging Build**: No authorized commercial code-signing certificate was present at build time. Binaries are intentionally left **unsigned** (never self-signed or spoofed). Verify integrity using SHA-256 hashes in [dist/checksums.txt](dist/checksums.txt). Windows SmartScreen may display an "Unknown publisher" notice until signed with a trusted Authenticode certificate.
-- **Third-Party Runtime Notice**: Portable `runtime\node.exe` (Node.js v24.20.0, MIT License) is bundled exclusively to run the local loopback bridge; see [installer/THIRD_PARTY_NOTICES.txt](installer/THIRD_PARTY_NOTICES.txt).
+- **Third-Party Runtime Notice**: Portable `runtime\node.exe` (Node.js v24.20.0, MIT License) is bundled exclusively to run the local loopback bridge; see [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
+
+## Reporting Security Issues
+- **Do not** disclose suspected security vulnerabilities or leaked credentials in public issues or pull requests.
+- Report security concerns privately via GitHub's **Private Vulnerability Reporting** (Security Advisories) on `erf81/vayro-quiet-trigger` once public, or contact the maintainer (`erf81`) through GitHub without including real tokens, passwords, or private Photoshop documents.
+- Include the Quiet Trigger version, Windows & Photoshop version, steps to reproduce, and impact assessment. The maintainer reviews all security reports prior to issuing patched releases.

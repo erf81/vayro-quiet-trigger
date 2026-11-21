@@ -1,26 +1,32 @@
 # Contributing to Quiet Trigger by VAYRO
 
-Thank you for your interest in **Quiet Trigger by VAYRO**.
+Thank you for your interest in contributing to **Quiet Trigger by VAYRO**.
 
-## Repository & Licensing Status
-This repository is currently maintained as a **private staging repository** and is **unlicensed** pending an explicit license selection by the owner (`erf81`). Do not redistribute, fork publicly, or submit third-party code under incompatible license terms until an official license is chosen.
+## License & Attribution
+Original source code in this repository is licensed under the **Apache License, Version 2.0** (`SPDX-License-Identifier: Apache-2.0`, `Copyright 2026 erf81`). By submitting a pull request, you confirm that your contribution is your original work (or properly licensed for inclusion) and may be distributed under the Apache License 2.0. See [LICENSE](LICENSE), [NOTICE](NOTICE), and [TRADEMARKS.md](TRADEMARKS.md).
 
-## Development Workflow
-1. **Prerequisites (Development Only)**: Node.js 18+, Python 3.10+, Windows 10/11 x64, Adobe Photoshop 2025 (26.x), and Inno Setup 6 (`ISCC.exe`) for building the single-file installer.
-2. **Run Automated Tests**:
-   ```bash
-   npm test
-   ```
-   All 28 tests (`tests/*.test.js`) must pass before committing.
-3. **UXP Compatibility Rules**:
-   - Preserve UXP plugin ID `com.zau.photoshop.console` in `manifest.json`.
-   - Use UXP Yoga-safe Flexbox CSS only (no CSS Grid, no `inset`, no `<input type="color">`).
-   - Use `ws://localhost:47821` for the UXP WebSocket client while keeping `bridge-server.js` bound strictly to `127.0.0.1`.
-   - Never commit session tokens, user `zau-console-state.json` files, `node_modules/`, or `installer/stage/`.
-4. **Build Packages**:
-   ```bash
-   npm run icons           # Regenerate UXP & brand assets
-   npm run package         # Build dist/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx
-   npm run build:helper    # Compile QuietTriggerHelper.exe
-   npm run build:installer # Build dist/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe + checksums.txt
-   ```
+## Development Prerequisites
+- Node.js 18+ (zero external `npm` runtime dependencies)
+- Python 3.10+ (used by `scripts/build-ccx.js` for forward-slash ZIP packaging)
+- Windows 10 / 11 x64 + Adobe Photoshop 2025 (26.x) for live UXP & WPF testing
+- Inno Setup 6 (`ISCC.exe`) for compiling `dist/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe`
+
+## Local Workflow & Automated Testing
+```bash
+npm test                # Run all 28 automated unit & integration tests
+npm run icons           # Regenerate UXP & brand icon assets
+npm run package         # Build dist/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx
+npm run build:helper    # Compile installer/build/QuietTriggerHelper.exe
+npm run build:installer # Build dist/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe + checksums.txt
+```
+
+## Engineering & Security Guidelines
+- Preserve the internal UXP plugin ID (`com.zau.photoshop.console`) and panel ID (`zauConsolePanel`) in `manifest.json` so existing users upgrade cleanly without duplicates.
+- Use UXP Yoga-safe Flexbox CSS only (no CSS Grid, no `inset`, no `<input type="color">`).
+- Keep the local bridge bound strictly to `127.0.0.1:47821` with constant-time 256-bit token authentication.
+- Never commit session tokens, user `zau-console-state.json` files, `.env` files, `node_modules/`, or `installer/stage/`.
+
+## Pull Requests & Issue Triage
+- Open an issue describing the bug, Photoshop version, OS version, and reproduction steps (do not post private tokens or personal artwork).
+- Pull requests are checked by GitHub Actions CI (`node --test tests/*.test.js`, license/metadata validation, CCX packaging, dependency review, and Gitleaks secret scanning) and are reviewed manually by the maintainer (`erf81`) prior to merge.
+- Releases are built, checksummed, and published manually by the maintainer; CI never publishes releases automatically.

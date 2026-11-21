@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * ZAU Console Command Registry.
  * Independent of UI; extensible for future custom commands and user workflows.

@@ -44,3 +44,9 @@ For users who only want the docked UXP panel inside Adobe Photoshop without the 
    - Also remove the Photoshop UXP plugin via official Adobe UPIA, and
    - Keep your user settings, custom themes, and Favorites (**kept by default**).
 4. Unrelated Adobe files and your Photoshop documents are never touched.
+
+---
+
+## Licensing & Third-Party Distribution Status
+- **Source Code**: Licensed under the **Apache License, Version 2.0** (`Copyright 2026 erf81`; see [LICENSE](../LICENSE) and [TRADEMARKS.md](../TRADEMARKS.md)).
+- **Bundled Installer Components**: `VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe` bundles a portable **Node.js v24.20.0** runtime (MIT License) and is compiled with **Inno Setup 6.7.3** (open-source license permits redistribution; maintainers request a commercial license for commercial/business distribution — Quiet Trigger 2.1.0 is distributed free and open source). See [THIRD_PARTY_NOTICES.txt](../THIRD_PARTY_NOTICES.txt).

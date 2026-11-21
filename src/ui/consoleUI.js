@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Main Command Palette UI Controller for ZAU Console 2.0 (Aurora Design System).
  * Handles live Aurora CSS variables, instant debounced search, compact Favorites/Recent

@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * ZAU Console — Local Loopback IPC Bridge Server (Node.js, Zero Dependencies)
  *

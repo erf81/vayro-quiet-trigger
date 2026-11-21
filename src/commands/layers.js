@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Category D: Layer Operations
  * Uses Photoshop DOM API v2 where exposed and verified batchPlay descriptors otherwise.

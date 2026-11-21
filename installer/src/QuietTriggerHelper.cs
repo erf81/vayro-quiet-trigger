@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 // VAYRO — Quiet Trigger 2.1.0
 // Native Silent Windows Background Helper, Local Bridge Supervisor, Global Hotkey & System Tray
 // Zero console windows, single-instance Mutex, per-user startup compatible.

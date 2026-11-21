@@ -6,7 +6,8 @@
 - **OS**: Microsoft Windows 10 Enterprise 64-bit (`10.0.19043`)
 - **Host Application**: **Adobe Photoshop 2025 v26.8.1** (64-bit)
 - **Official Adobe Installer**: `UnifiedPluginInstallerAgent.exe` (UPIA)
-- **Installer Compiler**: Inno Setup 6.7.3 (per-user install, LZMA2/max; note: compiled with free non-commercial Inno Setup edition — commercial distribution requires a commercial Inno Setup license if applicable)
+- **Installer Compiler**: Inno Setup 6.7.3 (per-user install, LZMA2/max; open-source `license.txt` permits redistribution including commercial applications; maintainers request a paid commercial license for commercial/business use — compliant for free open-source distribution)
+- **License**: Apache License 2.0 (`Copyright 2026 erf81`, `SPDX-License-Identifier: Apache-2.0`, see `LICENSE`, `NOTICE`, `TRADEMARKS.md`, `THIRD_PARTY_NOTICES.txt`)
 - **Runtime**: Bundled portable Node.js `v24.20.0` (`runtime\node.exe`), .NET Framework 4.x (`QuietTriggerHelper.exe`), Windows PowerShell 5.1 / WPF
 
 ---

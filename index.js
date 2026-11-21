@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * ZAU Console 2.0 — Adobe Photoshop UXP Plugin Entrypoint (API v2, Manifest v5)
  *

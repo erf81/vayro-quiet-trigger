@@ -1,0 +1,59 @@
+name: CI & Security Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-validate:
+    name: Automated Tests, License & Package Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run automated test suite (28 tests)
+        run: node --test tests/*.test.js
+
+      - name: Validate Apache-2.0 license, notices & manifest metadata
+        run: |
+          test -f LICENSE
+          test -f NOTICE
+          test -f TRADEMARKS.md
+          test -f THIRD_PARTY_NOTICES.txt
+          node -e "
+            const pkg = require('./package.json');
+            const man = require('./manifest.json');
+            if (pkg.license !== 'Apache-2.0') throw new Error('Expected Apache-2.0 in package.json');
+            if (man.id !== 'com.zau.photoshop.console') throw new Error('Unexpected UXP plugin id');
+            console.log('Metadata OK:', pkg.name, pkg.version, pkg.license, man.id);
+          "
+
+      - name: Validate Photoshop UXP CCX build
+        run: |
+          node scripts/build-ccx.js
+          test -f "dist/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx"
+
+  secret-scan:
+    name: Gitleaks Full History Secret Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full Git history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

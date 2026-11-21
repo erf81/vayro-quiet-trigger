@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Safe Command Executor for ZAU Console.
  * Enforces Photoshop UXP API v2 modal execution (core.executeAsModal),

@@ -1,3 +1,6 @@
+# Copyright 2026 erf81
+# SPDX-License-Identifier: Apache-2.0
+
 <#
 .SYNOPSIS
   Official Adobe UXP Plugin Installer & Safe ZAU Console 2.0.0 -> Quiet Trigger 2.1.0 Upgrader.

@@ -2,7 +2,12 @@
   "name": "vayro-quiet-trigger",
   "version": "2.1.0",
   "description": "Quiet Trigger by VAYRO — A customizable, keyboard-driven command palette for Adobe Photoshop.",
-  "private": true,
+  "license": "Apache-2.0",
+  "author": "erf81",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erf81/vayro-quiet-trigger.git"
+  },
   "scripts": {
     "test": "node --test tests/*.test.js",
     "icons": "node scripts/generate-icons.js",

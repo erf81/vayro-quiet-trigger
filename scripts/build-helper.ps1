@@ -1,3 +1,6 @@
+# Copyright 2026 erf81
+# SPDX-License-Identifier: Apache-2.0
+
 <#
 .SYNOPSIS
   Compiles VAYRO Quiet Trigger's native silent Windows Background Helper (QuietTriggerHelper.exe).

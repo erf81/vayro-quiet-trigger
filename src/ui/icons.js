@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Crisp minimal monochrome inline SVG icons for ZAU Console 2.0 (Aurora Design System).
  * Uses explicit UXP-safe SVG attributes so icons render crisply in Photoshop 26.8.1.

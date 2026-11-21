@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Category B: Filters & Effects
  * Opens native Photoshop interactive filter dialogs via batchPlay (dialogOptions: "display")

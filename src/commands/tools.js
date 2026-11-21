@@ -1,3 +1,6 @@
+// Copyright 2026 erf81
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * Category A: Photoshop Tools
  * All tools use verified Action Manager tool class names via batchPlay.

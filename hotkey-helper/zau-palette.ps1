@@ -1,4 +1,7 @@
-﻿<#
+﻿# Copyright 2026 erf81
+# SPDX-License-Identifier: Apache-2.0
+
+<#
 .SYNOPSIS
   Quiet Trigger by VAYRO (v2.1.0) — Floating Command Palette & VAYRO Theme Studio
 .DESCRIPTION
