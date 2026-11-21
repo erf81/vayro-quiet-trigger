@@ -426,10 +426,13 @@ function renderSocialPreviewRGBA(w = 1280, h = 640) {
   return rgba;
 }
 
-const iconOutDir = path.join(__dirname, '..', 'assets', 'icons');
-const brandOutDir = path.join(__dirname, '..', 'assets', 'brand');
+const rootDir = path.resolve(__dirname, '..', '..');
+const iconOutDir = path.join(rootDir, 'assets', 'icons');
+const vayroBrandDir = path.join(rootDir, 'assets', 'brand', 'vayro');
+const qtBrandDir = path.join(rootDir, 'assets', 'brand', 'quiet-trigger');
 fs.mkdirSync(iconOutDir, { recursive: true });
-fs.mkdirSync(brandOutDir, { recursive: true });
+fs.mkdirSync(vayroBrandDir, { recursive: true });
+fs.mkdirSync(qtBrandDir, { recursive: true });
 
 // 1. Photoshop UXP Manifest v5 Icons
 const uxpIcons = [
@@ -456,13 +459,13 @@ const icoEntries = icoSizes.map((sz) => ({
   size: sz,
   png: encodePNG(sz, sz, renderQuietTriggerMarkRGBA(sz, 'aurora')),
 }));
-fs.writeFileSync(path.join(brandOutDir, 'quiet-trigger.ico'), encodeICO(icoEntries));
-fs.writeFileSync(path.join(brandOutDir, 'quiet-trigger-256.png'), icoEntries[icoEntries.length - 1].png);
-console.log('Generated assets/brand/quiet-trigger.ico (16..256px) and quiet-trigger-256.png');
+fs.writeFileSync(path.join(qtBrandDir, 'quiet-trigger.ico'), encodeICO(icoEntries));
+fs.writeFileSync(path.join(qtBrandDir, 'quiet-trigger-256.png'), icoEntries[icoEntries.length - 1].png);
+console.log('Generated assets/brand/quiet-trigger/quiet-trigger.ico (16..256px) and quiet-trigger-256.png');
 
 // 3. Inno Setup Wizard Bitmaps
-fs.writeFileSync(path.join(brandOutDir, 'installer-sidebar.bmp'), encodeBMP24(164, 314, renderInstallerSidebarRGBA(164, 314)));
-fs.writeFileSync(path.join(brandOutDir, 'installer-header.bmp'), encodeBMP24(55, 58, (() => {
+fs.writeFileSync(path.join(qtBrandDir, 'installer-sidebar.bmp'), encodeBMP24(164, 314, renderInstallerSidebarRGBA(164, 314)));
+fs.writeFileSync(path.join(qtBrandDir, 'installer-header.bmp'), encodeBMP24(55, 58, (() => {
   const w = 55, h = 58;
   const rgba = Buffer.alloc(w * h * 4);
   for (let i = 0; i < w * h; i++) { rgba[i * 4] = 17; rgba[i * 4 + 1] = 21; rgba[i * 4 + 2] = 34; rgba[i * 4 + 3] = 255; }
@@ -475,16 +478,31 @@ fs.writeFileSync(path.join(brandOutDir, 'installer-header.bmp'), encodeBMP24(55,
   }
   return rgba;
 })()));
-console.log('Generated assets/brand/installer-sidebar.bmp and installer-header.bmp');
+console.log('Generated assets/brand/quiet-trigger/installer-sidebar.bmp and installer-header.bmp');
 
 // 4. GitHub Social Preview (1280x640) — preserve high-res Segoe UI artwork if already rendered
-const socialPath = path.join(brandOutDir, 'github-social-preview.png');
+const socialPath = path.join(qtBrandDir, 'github-social-preview.png');
 if (!fs.existsSync(socialPath)) {
   fs.writeFileSync(socialPath, encodePNG(1280, 640, renderSocialPreviewRGBA(1280, 640)));
-  console.log('Generated assets/brand/github-social-preview.png (1280x640)');
+  console.log('Generated assets/brand/quiet-trigger/github-social-preview.png (1280x640)');
 }
 
-// 5. Crisp Scalable SVG Brand Marks
+// 5. Crisp Scalable SVG Brand Marks (Parent VAYRO vs Product Quiet Trigger)
+const vayroMarkSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="vayroParentGrad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4EA5FF"/>
+      <stop offset="52%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC69B9"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#0F1320" stroke="#2B3552" stroke-width="2"/>
+  <path d="M17 18L32 46L47 18" stroke="url(#vayroParentGrad)" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M25 18H39" stroke="#F2F6FF" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/>
+</svg>
+`;
+fs.writeFileSync(path.join(vayroBrandDir, 'vayro-mark.svg'), vayroMarkSvg, 'utf8');
+
 const symbolSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
   <defs>
     <linearGradient id="vayroAurora" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
@@ -498,7 +516,7 @@ const symbolSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" w
   <circle cx="32" cy="21" r="3.4" fill="#4EA5FF"/>
 </svg>
 `;
-fs.writeFileSync(path.join(brandOutDir, 'quiet-trigger-symbol.svg'), symbolSvg, 'utf8');
+fs.writeFileSync(path.join(qtBrandDir, 'quiet-trigger-symbol.svg'), symbolSvg, 'utf8');
 
 const horizontalSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 72" width="380" height="72" fill="none">
   <defs>
@@ -515,5 +533,5 @@ const horizontalSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 
   <text x="87" y="54" fill="#8E9CB8" font-family="Segoe UI, -apple-system, sans-serif" font-size="11.5" font-weight="600" letter-spacing="3.2">BY VAYRO</text>
 </svg>
 `;
-fs.writeFileSync(path.join(brandOutDir, 'vayro-logo-horizontal.svg'), horizontalSvg, 'utf8');
-console.log('Generated SVG brand marks in assets/brand/');
+fs.writeFileSync(path.join(vayroBrandDir, 'vayro-logo-horizontal.svg'), horizontalSvg, 'utf8');
+console.log('Generated distinct SVG brand marks in assets/brand/vayro/ and assets/brand/quiet-trigger/');

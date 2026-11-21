@@ -1,12 +1,13 @@
-title = "VAYRO Quiet Trigger Gitleaks Configuration"
+title = "Quiet Trigger by VAYRO — Gitleaks Configuration"
 
 [extend]
 useDefault = true
 
 [[allowlists]]
-description = "Allow intentional synthetic unit-test fixture string in storageManager.test.js only"
+description = "Allow intentional synthetic unit-test fixture string in storageManager.test.js (current and pre-refactor historical path)"
 paths = [
   '''^tests/storageManager\.test\.js$''',
+  '''^tests/unit/storageManager\.test\.js$''',
 ]
 regexes = [
   '''tok_keep_me_safe_123456''',

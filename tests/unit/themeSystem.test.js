@@ -13,7 +13,7 @@ const {
   buildCssGradient,
   computeCssVariables,
   getAllPresets,
-} = require('../src/theme/themeSystem.js');
+} = require('../../photoshop-plugin/src/theme/themeSystem.js');
 
 test('Theme system provides all 6 Aurora Design System presets with exact hex palettes', () => {
   const presets = getAllPresets();

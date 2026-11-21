@@ -1,6 +1,6 @@
-# ZAU Console 2.0 — ZAU Aurora Design System & Theme Studio
+# VAYRO Theme Studio — Quiet Trigger Design System
 
-**ZAU Theme Studio** lets creative professionals customize the complete color, gradient, glow, translucency, corner radius, density, and appearance system of **ZAU Console 2.0** in real time — without restarting Adobe Photoshop — across both the **Photoshop UXP docked panel** and the **Windows WPF floating palette**.
+**VAYRO Theme Studio** lets creative professionals customize the complete color, gradient, glow, translucency, corner radius, density, and appearance system of **Quiet Trigger by VAYRO** in real time — without restarting Adobe Photoshop — across both the **Photoshop UXP docked panel** and the **Windows WPF floating palette**.
 
 ---
 
@@ -8,21 +8,21 @@
 
 | WPF Floating Palette — Aurora | WPF Floating Palette — Ember |
 |---|---|
-| ![WPF Aurora](screenshots/v2-wpf-aurora.png) | ![WPF Ember](screenshots/v2-wpf-ember.png) |
+| ![WPF Aurora](screenshots/v21-wpf-aurora.png) | ![WPF Ember](screenshots/v21-wpf-ember.png) |
 
-| WPF Floating Palette — Custom Red/Orange | WPF Built-in ZAU Theme Studio |
+| WPF Floating Palette — Custom Red/Orange | Built-in VAYRO Theme Studio |
 |---|---|
-| ![WPF Custom Red Orange](screenshots/v2-wpf-custom-red-orange.png) | ![WPF Theme Studio](screenshots/v2-wpf-theme-studio.png) |
+| ![WPF Custom Red Orange](screenshots/v21-wpf-custom-red-orange.png) | ![VAYRO Theme Studio](screenshots/v21-wpf-theme-studio.png) |
 
-| Photoshop UXP Panel — Aurora | Photoshop UXP Panel — Ember (Live Sync) | Photoshop UXP Panel — Custom Red/Orange |
+| Historical UXP Panel Captures (v2.0.0 Archive) | | |
 |---|---|---|
-| ![UXP Aurora](screenshots/v2-uxp-aurora-panel.png) | ![UXP Ember](screenshots/v2-uxp-ember-panel.png) | ![UXP Custom Red Orange](screenshots/v2-uxp-custom-red-orange-panel.png) |
+| ![UXP Aurora](screenshots/archive/v2-uxp-aurora-panel.png) | ![UXP Ember](screenshots/archive/v2-uxp-ember-panel.png) | ![UXP Custom Red Orange](screenshots/archive/v2-uxp-custom-red-orange-panel.png) |
 
 ---
 
 ## 1. Built-in Presets (6 Signature Themes)
 
-All 6 presets are defined in the shared schema (`src/theme/themeSystem.js`) and mirrored identically in `hotkey-helper/zau-palette.ps1`:
+All 6 presets are defined in the shared schema (`photoshop-plugin/src/theme/themeSystem.js`) and mirrored identically in `companion/windows-helper/quiet-trigger-palette.ps1`:
 
 | Preset | Subtitle | Primary | Secondary | Tertiary | Background | Surface | Selected | Border | Glow |
 |---|---|---|---|---|---|---|---|---|---|

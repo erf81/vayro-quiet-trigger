@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { StorageManager } = require('../src/storage/storageManager');
+const { StorageManager } = require('../../photoshop-plugin/src/storage/storageManager');
 
 function createMemoryAdapter() {
   let blob = null;

@@ -1,16 +1,20 @@
 <p align="center">
-  <img src="assets/brand/github-social-preview.png" alt="Quiet Trigger by VAYRO — Less searching. More creating." width="860" />
+  <img src="assets/brand/quiet-trigger/github-social-preview.png" alt="Quiet Trigger by VAYRO — Less searching. More creating." width="860" />
 </p>
 
-# Quiet Trigger by VAYRO
+# VAYRO
 
-**"Less searching. More creating."**
+## Quiet Trigger
 
-**Quiet Trigger** is a fast, customizable, keyboard-driven command palette for **Adobe Photoshop** built by **VAYRO**. Inspired by instant command-launcher workflows and engineered natively for **Adobe Photoshop 2025** (UXP Manifest v5, Photoshop API v2), it pairs a frosted floating Windows palette (`Ctrl + Alt + Space`) with a synchronized Photoshop UXP panel, an authenticated local loopback bridge, and **VAYRO Theme Studio**.
+**A keyboard-driven command palette for Adobe Photoshop.**
+
+*Less searching. More creating.*
+
+**Quiet Trigger** is a fast, customizable command palette built by **VAYRO** for **Adobe Photoshop 2025** (UXP Manifest v5, Photoshop API v2). It pairs a frosted floating Windows palette (`Ctrl + Alt + Space`) with a synchronized Photoshop UXP panel, **VAYRO Theme Studio**, a silent Windows system tray helper, and an authenticated local loopback bridge.
 
 ---
 
-## Live Screenshots (v2.1.0 · Adobe Photoshop 2025 v26.8.1)
+## Product Screenshots (v2.1.0 · Adobe Photoshop 2025 v26.8.1)
 
 | Floating Palette — Aurora (`Ctrl + Alt + Space`) | VAYRO Theme Studio (Live Preview & 6 Presets) |
 |---|---|
@@ -22,133 +26,95 @@
 
 ---
 
-## Main Features
-- **One-Click Single-File Windows Installer**: Download `VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe` — bundles the official Photoshop UXP `.ccx`, silent background tray helper (`QuietTriggerHelper.exe`), portable Node.js runtime, loopback bridge, floating WPF palette, automatic Windows startup, and clean uninstaller. No global Node.js, AutoHotkey, or developer tools required.
-- **Silent Windows Background Helper & System Tray**: Starts automatically at Windows sign-in with zero command prompt windows, stays quiet in the system tray (`Open Quiet Trigger`, `Theme Studio`, `Settings`, `Pause Hotkey`, `Resume Hotkey`, `Start Photoshop`, `Check for Updates`, `Exit Quiet Trigger`), and only activates when Adobe Photoshop is the foreground window.
-- **98 Photoshop Commands Across 8 Categories**: `Tools`, `Filters`, `Adjustments`, `Layers`, `Selections`, `Document`, `View`, and `Export` — **92 / 98 live-verified PASS** in Adobe Photoshop 2025 v26.8.1 (with the remaining 6 GPU-workspace / Adobe Sensei commands transparently documented).
-- **Instant Local Fuzzy + English + Persian Search**: Partial-word (`gblr`), alias (`usm`, `crv`), keyword, and Persian (Farsi) queries (`بلور`, `ماسک`, `کراپ`, `منحنی`), plus pinned **Favorites**, **Recent Commands**, and category filtering.
-- **Document & Layer Awareness**: Live Photoshop document name, dimensions, active layer kind/lock state, pre-flight guards, and destructive action confirmations.
-- **VAYRO Theme Studio**: 6 built-in presets (**Aurora**, **Ember**, **Crimson**, **Arctic**, **Emerald**, **Monochrome**), 8-token validated `#RRGGBB` HEX editor, Solid / 2-Color / 3-Color gradients & directions, Glow, Surface Style, Opacity (`0.72–1.00`), Corner Radius, UI Density, Dark/Light/Auto appearance, Saved Custom Themes, and live bidirectional UXP ↔ WPF synchronization without restarting Photoshop.
+## Installation Options
 
----
+Download official verified artifacts from the [v2.1.0 GitHub Release](https://github.com/erf81/vayro-quiet-trigger/releases/tag/v2.1.0):
 
-## One-Click Installation
-
-Two official release artifacts are provided in `dist/`:
-
-| Artifact | Purpose | Recommended For |
+| Artifact | What It Installs | Recommended For |
 |---|---|---|
-| **`VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe`** | Complete Windows installer (UXP plugin + silent tray helper + bundled Node.js bridge + auto-startup + uninstaller) | **All Windows Photoshop users** |
-| **`VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx`** | Official Adobe Photoshop UXP plugin package only (docked panel only; no global floating palette) | Users who only want the Photoshop panel |
+| **`VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe`** | **Quiet Trigger Setup** *(Published by VAYRO)* — complete per-user installer bundling the Photoshop UXP `.ccx`, silent tray helper (`QuietTriggerHelper.exe`), portable Node.js bridge runtime, floating WPF palette, automatic startup, and uninstaller | **All Windows 10/11 Photoshop users** |
+| **`VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx`** | Official Adobe Photoshop UXP plugin package only (docked panel inside Photoshop; global floating palette requires the Windows installer) | Users who only want the docked Photoshop panel |
 
-1. Download **`VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe`** and verify its SHA-256 hash against [dist/checksums.txt](dist/checksums.txt).
-2. Run the installer (per-user install — no administrator elevation required).
+1. Download **`VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe`** and verify its SHA-256 hash against `checksums.txt`.
+2. Run **Quiet Trigger Setup** (per-user install — no administrator prompt, no global Node.js, AutoHotkey, or UXP Developer Tool required).
 3. Open **Adobe Photoshop 2025** and press **`Ctrl + Alt + Space`**.
 
-> **Unsigned Staging Build Notice**: This release is not yet signed with a paid Authenticode certificate. Windows SmartScreen may show an "Unknown publisher" notice — verify the SHA-256 checksum before proceeding. See [docs/INSTALLATION.md](docs/INSTALLATION.md) for full instructions.
+> **Code Signing Notice**: Initial public builds are unsigned (no commercial Authenticode certificate). Verify SHA-256 checksums before running the installer. See [docs/INSTALLATION.md](docs/INSTALLATION.md) and [docs/UPGRADE.md](docs/UPGRADE.md).
 
 ---
 
-## Photoshop Compatibility
-- **Live-Verified Host**: **Adobe Photoshop 2025 v26.8.1** (Windows 10 Enterprise x64)
-- **UXP Target**: Manifest v5, Photoshop API v2, minimum host version `24.0.0`
-- **Installation Method**: Official Adobe `UnifiedPluginInstallerAgent.exe /install` (with fallback to official `.ccx` Creative Cloud Desktop file association if UPIA is absent). Never copies files manually into Adobe plugin folders.
+## Key Features
+- **98 Photoshop Commands Across 8 Categories** (`Tools`, `Filters`, `Adjustments`, `Layers`, `Selections`, `Document`, `View`, `Export`) — **92 / 98 live-verified PASS** in Adobe Photoshop 2025 v26.8.1 ([docs/COMMAND_REFERENCE.md](docs/COMMAND_REFERENCE.md)).
+- **Instant Local Fuzzy + English + Persian Search**: Partial-word (`gblr`), alias (`usm`, `crv`), keyword, and Persian (Farsi) queries (`بلور`, `ماسک`, `کراپ`, `منحنی`), plus pinned **Favorites** and **Recent Commands**.
+- **Document & Layer Awareness**: Live Photoshop document name, dimensions, active layer kind/lock state, pre-flight guards, and destructive action confirmations.
+- **VAYRO Theme Studio**: 6 built-in presets (**Aurora**, **Ember**, **Crimson**, **Arctic**, **Emerald**, **Monochrome**), 8-token validated `#RRGGBB` HEX editor, Solid / 2-Color / 3-Color gradients & directions, Glow, Surface Style, Opacity (`0.72–1.00`), Corner Radius, UI Density, Dark/Light/Auto appearance, Saved Custom Themes, and real-time UXP ↔ WPF sync ([docs/THEME_STUDIO.md](docs/THEME_STUDIO.md)).
+- **Silent Windows Background Helper & System Tray**: Auto-starts cleanly at Windows sign-in (`HKCU\...\Run`), stays silent in the system tray, activates **only** when Adobe Photoshop is focused (`Ctrl + Alt + Space` default; optional `Ctrl + Space` override with Photoshop Zoom warning), and uninstalls cleanly while preserving user settings by default.
 
 ---
 
-## Global Hotkey
-- **Default**: **`Ctrl + Alt + Space`** (safe default; preserves Photoshop's native `Ctrl + Space` temporary Zoom In shortcut).
-- **Optional Override**: **`Ctrl + Shift + Space`** or **`Ctrl + Space`** (displays an explicit warning about replacing Photoshop's native Zoom In while Quiet Trigger is active).
-- Configurable anytime via **System Tray → Settings** or **Photoshop Panel → Settings**.
-- Hotkey fires **only** when `Photoshop.exe` is the active foreground window and can be paused/resumed from the system tray.
+## Repository Architecture
 
----
-
-## VAYRO Theme Studio & Custom Themes
-Click the **Gear (`⚙`)** button in either the floating palette or the Photoshop UXP panel (or **System Tray → Theme Studio**) to open **VAYRO Theme Studio**:
-- **6 Presets**: Aurora *(default Blue → Violet → Pink)*, Ember, Crimson, Arctic, Emerald, Monochrome.
-- **Custom Themes**: Edit all 8 color tokens with validated `#RRGGBB` inputs or quick swatches, customize 1/2/3-color gradients & directions, adjust glow, surface style, opacity, corner radius, and density, preview live in miniature, save up to 12 custom theme chips, and sync live across WPF and Photoshop UXP with zero restart.
-
-See [docs/THEME_STUDIO.md](docs/THEME_STUDIO.md) for exact preset palettes and schema details.
-
----
-
-## Command Categories (98 Commands)
-1. **Tools** — Move, Brush, Crop, Selection, Healing, Clone, Pen, Type, Shape, Zoom, Hand, and more.
-2. **Filters** — Gaussian Blur, Motion Blur, Lens Blur, Surface Blur, Blur Gallery, Smart Sharpen, Unsharp Mask, High Pass, Noise, Liquify, Camera Raw.
-3. **Adjustments** — Curves, Levels, Hue/Saturation, Color Balance, Vibrance, Brightness/Contrast, Exposure, Black & White, Gradient Map, Channel Mixer, Selective Color.
-4. **Layers** — New, Duplicate, Delete, Group/Ungroup, Layer Mask, Clipping Mask, Smart Object, Rasterize, Merge, Flatten, Lock, Rename.
-5. **Selections** — Select All, Deselect, Inverse, Feather, Expand, Contract, Smooth, Select Subject, Remove Background.
-6. **Document** — New, Image Size, Canvas Size, Trim, Crop, Rotate, Flip, New Guide Layout.
-7. **View** — Fit on Screen, 100% Actual Pixels, Zoom In/Out, Guides, Rulers, Grid.
-8. **Export** — Quick Export PNG, Export As, Export JPEG, Save a Copy, Export Selected Layers.
-
-Full live-verification status for every command is documented in [docs/COMMAND_REFERENCE.md](docs/COMMAND_REFERENCE.md).
-
----
-
-## Security & Local Loopback Bridge
-- Binds **strictly to `127.0.0.1:47821`** (never exposes a public network port).
-- Authenticates every HTTP and WebSocket request with a **256-bit random per-user session token** checked via constant-time `crypto.timingSafeEqual`.
-- Automatic local first-run pairing operates strictly within the logged-in Windows user's private `%LOCALAPPDATA%` and `%APPDATA%` directories.
-- No session tokens are bundled in the installer, logged to stdout, or stored inside `theme.json`.
-- Theme synchronization (`POST /theme`) never triggers Photoshop command execution.
-
-See [SECURITY.md](SECURITY.md) for full security architecture details.
-
----
-
-## Upgrade & Uninstallation
-- **Upgrading from ZAU Console 2.0.0**: Run `VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe` directly. It preserves internal UXP ID `com.zau.photoshop.console` (zero duplicate plugin), backs up and restores Photoshop `PluginData`, and atomically migrates your existing session token, custom themes, Favorites, and Recents. See [docs/UPGRADE.md](docs/UPGRADE.md).
-- **Uninstalling**: Open **Windows Settings → Apps → Installed Apps → Quiet Trigger by VAYRO → Uninstall**. Stops the helper and bundled bridge, removes startup entries and shortcuts, offers optional official UPIA plugin removal, and **preserves your user settings and themes by default**.
-
----
-
-## Development Setup & Testing
-```bash
-npm test            # Run all 28 automated unit & integration tests
-npm run icons       # Regenerate Photoshop UXP & VAYRO brand assets
-npm run package     # Build dist/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx
-npm run build:helper    # Compile installer/build/QuietTriggerHelper.exe (.NET Framework 4.x)
-npm run build:installer # Build dist/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe + checksums.txt
+```text
+vayro-quiet-trigger/
+├── photoshop-plugin/        # Official Adobe Photoshop UXP package root (Manifest v5, API v2)
+│   ├── manifest.json        # Preserved internal ID: com.zau.photoshop.console
+│   ├── index.html / index.js / styles.css
+│   └── src/                 # bridge, commands (98), core, search, storage, theme, ui
+├── companion/               # Windows desktop companion application
+│   ├── tray/                # Silent native WinExe system tray & hotkey host (QuietTriggerHelper.cs)
+│   ├── windows-helper/      # Frosted WPF floating palette (quiet-trigger-palette.ps1) & legacy scripts
+│   └── bridge/              # Loopback-only authenticated WebSocket/HTTP bridge (127.0.0.1:47821)
+├── installer/               # Inno Setup 6 single-file installer (quiet-trigger.iss) & UPIA scripts
+├── assets/
+│   ├── brand/vayro/         # Parent brand (VAYRO) marks & horizontal lockups
+│   ├── brand/quiet-trigger/ # Product (Quiet Trigger) icon, wizard bitmaps & social preview
+│   └── icons/               # Photoshop UXP Manifest v5 @1x/@2x chrome & pluginList icons
+├── scripts/                 # build/, release/, and security/ tooling
+├── tests/                   # unit/ (23 tests), integration/ (5 tests), fixtures/
+└── docs/                    # Architecture, branding, ecosystem, installation, upgrade & test reports
 ```
-See [docs/TEST_REPORT.md](docs/TEST_REPORT.md) for complete automated (28/28) and live Photoshop 2025 v26.8.1 verification evidence.
 
 ---
 
-## Known Limitations
-- **92 / 98 commands** are fully live-verified PASS in Adobe Photoshop 2025 v26.8.1. The remaining **6 commands** are explicitly documented:
-  - **4 full-screen GPU workspaces** (`filter.lensBlur`, `filter.blurGalleryField`, `filter.liquify`, `filter.cameraRaw`) require manual interactive OK/Cancel inside Photoshop's modal GPU workspace.
-  - **2 Adobe Sensei AI commands** (`selection.selectSubject`, `selection.removeBackground`) depend on active Adobe Creative Cloud authentication and recognizable image subjects.
-- Windows floating palette and global hotkey helper target **Windows 10/11 x64**. The Photoshop UXP `.ccx` panel itself follows standard Photoshop UXP Manifest v5 API v2.
-- Current staging installer binaries are unsigned (SHA-256 checksums provided).
+## Platform, Security & Known Limitations
+- **Photoshop Compatibility**: Live-verified on Windows 10 Enterprise x64 + **Adobe Photoshop 2025 v26.8.1** (UXP Manifest v5, API v2, minVersion `24.0.0`).
+- **Security**: Strictly loopback-only (`127.0.0.1:47821`), 256-bit constant-time session token authentication, automatic user-private pairing, zero telemetry, and full Git-history Gitleaks secret scanning ([SECURITY.md](SECURITY.md)).
+- **Known Limitations (6 / 98 commands)**: 4 full-screen GPU workspaces (`Lens Blur`, `Field Blur`, `Liquify`, `Camera Raw`) require interactive OK/Cancel inside Photoshop's GPU UI; 2 Adobe Sensei AI commands (`Select Subject`, `Remove Background`) depend on active Adobe cloud authentication and recognizable subjects.
 
 ---
 
-## Documentation Index
-- [docs/INSTALLATION.md](docs/INSTALLATION.md) — Complete installation & uninstall guide
-- [docs/UPGRADE.md](docs/UPGRADE.md) — Upgrading safely from ZAU Console 2.0.0
-- [docs/THEME_STUDIO.md](docs/THEME_STUDIO.md) — VAYRO Theme Studio presets & customization
-- [docs/BRANDING.md](docs/BRANDING.md) — VAYRO & Quiet Trigger brand architecture & naming review
+## Development & Testing
+```bash
+npm test                # Run all 28 unit & integration tests
+npm run icons           # Regenerate UXP & brand assets
+npm run package         # Build Photoshop UXP .ccx from photoshop-plugin/
+npm run build:helper    # Compile companion/tray/QuietTriggerHelper.cs
+npm run build:installer # Build single-file Windows installer + checksums.txt
+npm run security:scan   # Run full Git-history & working-tree Gitleaks scan
+```
+
+---
+
+## Documentation
+- [docs/INSTALLATION.md](docs/INSTALLATION.md) — Install, verify checksums & uninstall
+- [docs/UPGRADE.md](docs/UPGRADE.md) — Safe upgrade from ZAU Console 2.0.0
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Plugin, companion, bridge & installer architecture
+- [docs/THEME_STUDIO.md](docs/THEME_STUDIO.md) — VAYRO Theme Studio presets & live sync
+- [docs/BRANDING.md](docs/BRANDING.md) — VAYRO & Quiet Trigger brand hierarchy & naming review
+- [docs/ECOSYSTEM.md](docs/ECOSYSTEM.md) — VAYRO multi-product repository & release conventions
 - [docs/COMMAND_REFERENCE.md](docs/COMMAND_REFERENCE.md) — 98-command verification matrix
-- [docs/TEST_REPORT.md](docs/TEST_REPORT.md) — Automated (28/28) & live Windows 10 + Photoshop 2025 test evidence
-- [CONTRIBUTING.md](CONTRIBUTING.md) — Contribution & PR review guide
-- [SECURITY.md](SECURITY.md) — Local bridge security model & vulnerability reporting
-- [TRADEMARKS.md](TRADEMARKS.md) — Brand & trademark notice
-- [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt) — Third-party runtime & installer notices
-- [CHANGELOG.md](CHANGELOG.md) — Full version history (`2.1.0`, `2.0.0`, `1.0.0`)
+- [docs/TEST_REPORT.md](docs/TEST_REPORT.md) — Automated (28/28) & live Windows 10 + Photoshop 2025 QA evidence
+- [CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [CHANGELOG.md](CHANGELOG.md) · [TRADEMARKS.md](TRADEMARKS.md) · [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt)
 
 ---
 
 ## License & Trademark Notice
 
 ### Source Code License — Apache License 2.0
-**Copyright 2026 erf81**
-
-The original source code of **Quiet Trigger by VAYRO** is licensed under the **Apache License, Version 2.0**. See [LICENSE](LICENSE) for the full official license text and [NOTICE](NOTICE) for attribution details.
+**Copyright 2026 erf81** — Original source code is licensed under the **Apache License, Version 2.0** (see [LICENSE](LICENSE) and [NOTICE](NOTICE)).
 
 ### Third-Party Components
-Bundled third-party components in binary installers (including the portable **Node.js v24.20.0** runtime under the MIT License and the **Inno Setup 6.7.3** installer stub under the Inno Setup License) remain subject to their respective upstream licenses and are **not** covered by `erf81`'s copyright or Apache-2.0. See [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
+Bundled installer runtimes (portable **Node.js v24.20.0** under MIT License; **Inno Setup 6.7.3** under Inno Setup License) remain subject to their respective upstream licenses and are not covered by `erf81`'s copyright or Apache-2.0. See [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
 
 ### Trademark & Brand Notice
-**VAYRO** and **Quiet Trigger** are names used to identify this project. The Apache License 2.0 applies to the project's source code and does not grant permission to use these names, logos, or visual identity in a way that suggests official affiliation or endorsement. Forks and modified distributions should use their own names and branding. This notice does not claim trademark registration or establish exclusive trademark rights. See [TRADEMARKS.md](TRADEMARKS.md) for details.
+**VAYRO** and **Quiet Trigger** are names used to identify this project. The Apache License 2.0 applies to the project's source code and does not grant permission to use these names, logos, or visual identity in a way that suggests official affiliation or endorsement. Forks and modified distributions should use their own names and branding. This notice does not claim trademark registration or establish exclusive trademark rights. See [TRADEMARKS.md](TRADEMARKS.md).

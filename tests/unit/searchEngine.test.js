@@ -2,8 +2,8 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { createDefaultRegistry } = require('../src/commands');
-const { SearchEngine } = require('../src/search/searchEngine');
+const { createDefaultRegistry } = require('../../photoshop-plugin/src/commands');
+const { SearchEngine } = require('../../photoshop-plugin/src/search/searchEngine');
 
 const registry = createDefaultRegistry();
 const engine = new SearchEngine(registry.getAll());

@@ -2,6 +2,7 @@
 node_modules/
 installer/stage/
 installer/build/
+build-verify/
 
 # Logs, Temp & Local Credentials (NEVER commit)
 *.log

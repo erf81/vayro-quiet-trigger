@@ -13,18 +13,19 @@ Original source code in this repository is licensed under the **Apache License, 
 
 ## Local Workflow & Automated Testing
 ```bash
-npm test                # Run all 28 automated unit & integration tests
-npm run icons           # Regenerate UXP & brand icon assets
-npm run package         # Build dist/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx
-npm run build:helper    # Compile installer/build/QuietTriggerHelper.exe
-npm run build:installer # Build dist/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe + checksums.txt
+npm test                # Run all 28 unit & integration tests (tests/unit & tests/integration)
+npm run icons           # Regenerate UXP & brand assets (scripts/build/generate-icons.js)
+npm run package         # Build Photoshop UXP .ccx from photoshop-plugin/
+npm run build:helper    # Compile companion/tray/QuietTriggerHelper.cs
+npm run build:installer # Build single-file Windows installer + checksums.txt
+npm run security:scan   # Run Gitleaks full-history & working-tree scan
 ```
 
 ## Engineering & Security Guidelines
-- Preserve the internal UXP plugin ID (`com.zau.photoshop.console`) and panel ID (`zauConsolePanel`) in `manifest.json` so existing users upgrade cleanly without duplicates.
+- Preserve the internal UXP plugin ID (`com.zau.photoshop.console`) and panel ID (`zauConsolePanel`) in `photoshop-plugin/manifest.json` so existing users upgrade cleanly without duplicates.
 - Use UXP Yoga-safe Flexbox CSS only (no CSS Grid, no `inset`, no `<input type="color">`).
-- Keep the local bridge bound strictly to `127.0.0.1:47821` with constant-time 256-bit token authentication.
-- Never commit session tokens, user `zau-console-state.json` files, `.env` files, `node_modules/`, or `installer/stage/`.
+- Keep `companion/bridge/bridge-server.js` bound strictly to `127.0.0.1:47821` with constant-time 256-bit token authentication.
+- Never commit session tokens, user `zau-console-state.json` files, `.env` files, `node_modules/`, `build-verify/`, or `installer/stage/`.
 
 ## Pull Requests & Issue Triage
 - Open an issue describing the bug, Photoshop version, OS version, and reproduction steps (do not post private tokens or personal artwork).
