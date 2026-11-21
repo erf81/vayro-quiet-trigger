@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 72" width="380" height="72" fill="none">
+  <defs>
+    <linearGradient id="vayroAuroraH" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4EA5FF"/>
+      <stop offset="52%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC69B9"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="64" height="64" rx="17" fill="#111522" stroke="url(#vayroAuroraH)" stroke-width="3"/>
+  <path d="M21 24L36 46L51 24" stroke="#F2F6FF" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="36" cy="23" r="3.5" fill="#4EA5FF"/>
+  <text x="86" y="33" fill="#F2F6FF" font-family="Segoe UI, -apple-system, sans-serif" font-size="22" font-weight="700" letter-spacing="2.4">QUIET TRIGGER</text>
+  <text x="87" y="54" fill="#8E9CB8" font-family="Segoe UI, -apple-system, sans-serif" font-size="11.5" font-weight="600" letter-spacing="3.2">BY VAYRO</text>
+</svg>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiet Trigger — VAYRO</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="zauApp" class="zau-app" data-theme="dark" data-surface="frosted" data-glow="medium" data-density="comfortable">
+    <!-- TOP LUMINOUS ACCENT EDGE -->
+    <div class="aurora-top-edge"></div>
+
+    <!-- TOP HEADER -->
+    <div class="zau-header">
+      <div class="brand-bar">
+        <div class="brand-left">
+          <div class="brand-badge-ring">
+            <div id="zauBrandLogo" class="brand-logo-box"></div>
+          </div>
+          <div class="brand-stack">
+            <span class="brand-name">QUIET TRIGGER</span>
+            <span class="brand-byline">BY VAYRO</span>
+          </div>
+          <span id="zauBridgeDot" class="bridge-dot hidden" title="Quiet Trigger Background Helper Connected"></span>
+        </div>
+        <div class="brand-right">
+          <div id="zauSettingsBtn" class="icon-btn" role="button" tabindex="0" title="VAYRO Theme Studio & Settings" aria-label="VAYRO Theme Studio and Settings"></div>
+        </div>
+      </div>
+
+      <!-- LUMINOUS GRADIENT SEARCH RING -->
+      <div class="search-ring">
+        <div class="search-wrap">
+          <span id="zauSearchIcon" class="search-icon"></span>
+          <input
+            id="zauSearchInput"
+            class="search-input"
+            type="text"
+            uxp-quiet="true"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Search commands, tools, effects..."
+            aria-label="Search Photoshop commands"
+          />
+          <div id="zauClearSearch" class="clear-btn hidden" role="button" tabindex="0" title="Clear search" aria-label="Clear"></div>
+        </div>
+      </div>
+
+      <div id="zauLoadingBar" class="loading-bar hidden"></div>
+
+      <!-- COMPACT NAVIGATION: FAVORITES / RECENT + CATEGORY DROPDOWN -->
+      <div class="nav-row" aria-label="Command navigation">
+        <div class="nav-left">
+          <div id="zauNavFavorites" class="nav-pill" role="button" tabindex="0">Favorites</div>
+          <div id="zauNavRecent" class="nav-pill" role="button" tabindex="0">Recent</div>
+        </div>
+        <div class="nav-right">
+          <select id="zauCategorySelect" class="nav-cat-select" aria-label="Filter by category">
+            <option value="All">All Categories</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- MIDDLE: COMMAND RESULTS -->
+    <div class="zau-main">
+      <div id="zauResultsList" class="results-list" role="listbox" aria-label="Search results"></div>
+    </div>
+
+    <!-- BOTTOM: COMPACT CONTEXT & FEEDBACK -->
+    <div class="zau-footer">
+      <div id="zauDocInfo" class="doc-info">
+        <span class="doc-pill muted">No open document</span>
+      </div>
+      <div class="footer-meta">
+        <div class="kbd-hints">
+          <span><span class="kbd">↑↓</span></span>
+          <span><span class="kbd">↵</span></span>
+          <span><span class="kbd">Tab</span></span>
+          <span><span class="kbd">Esc</span></span>
+        </div>
+        <div id="zauStatusText" class="status-text tone-normal">Ready</div>
+      </div>
+    </div>
+
+    <!-- ZAU THEME STUDIO & SETTINGS DRAWER -->
+    <div id="zauSettingsPanel" class="settings-panel hidden" aria-label="ZAU Theme Studio & Settings"></div>
+
+    <!-- DESTRUCTIVE CONFIRMATION OVERLAY -->
+    <div id="zauConfirmOverlay" class="confirm-overlay hidden" role="dialog" aria-modal="true">
+      <div class="confirm-card">
+        <div id="zauConfirmTitle" class="confirm-title">Confirm Action</div>
+        <div id="zauConfirmMessage" class="confirm-message"></div>
+        <div id="zauConfirmTip" class="confirm-tip"></div>
+        <div class="confirm-actions">
+          <div id="zauConfirmCancel" class="btn-secondary" role="button" tabindex="0">Cancel (Esc)</div>
+          <div id="zauConfirmOk" class="btn-danger-solid" role="button" tabindex="0">Execute (Enter)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INLINE INPUT OVERLAY (e.g., Rename Layer) -->
+    <div id="zauInputOverlay" class="confirm-overlay hidden" role="dialog" aria-modal="true">
+      <div class="confirm-card">
+        <div id="zauInputTitle" class="input-modal-title">Enter Value</div>
+        <input id="zauInputField" class="zau-modal-input" type="text" uxp-quiet="true" autocomplete="off" />
+        <div class="confirm-actions">
+          <div id="zauInputCancel" class="btn-secondary" role="button" tabindex="0">Cancel (Esc)</div>
+          <div id="zauInputOk" class="btn-primary-solid" role="button" tabindex="0">Apply (Enter)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

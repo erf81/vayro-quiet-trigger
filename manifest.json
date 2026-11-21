@@ -1,0 +1,79 @@
+{
+  "id": "com.zau.photoshop.console",
+  "name": "Quiet Trigger",
+  "version": "2.1.0",
+  "main": "index.html",
+  "manifestVersion": 5,
+  "host": {
+    "app": "PS",
+    "minVersion": "24.0.0",
+    "data": {
+      "apiVersion": 2,
+      "loadEvent": "startup"
+    }
+  },
+  "requiredPermissions": {
+    "localFileSystem": "plugin",
+    "network": {
+      "domains": [
+        "ws://localhost:47821",
+        "http://localhost:47821",
+        "ws://127.0.0.1:47821",
+        "http://127.0.0.1:47821"
+      ]
+    }
+  },
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "zauConsolePanel",
+      "label": {
+        "default": "Quiet Trigger"
+      },
+      "minimumSize": {
+        "width": 320,
+        "height": 400
+      },
+      "maximumSize": {
+        "width": 900,
+        "height": 1200
+      },
+      "preferredDockedSize": {
+        "width": 380,
+        "height": 540
+      },
+      "preferredFloatingSize": {
+        "width": 440,
+        "height": 560
+      },
+      "icons": [
+        {
+          "width": 23,
+          "height": 23,
+          "path": "assets/icons/icon-dark-23.png",
+          "scale": [1, 2],
+          "theme": ["darkest", "dark"],
+          "species": ["chrome"]
+        },
+        {
+          "width": 23,
+          "height": 23,
+          "path": "assets/icons/icon-light-23.png",
+          "scale": [1, 2],
+          "theme": ["lightest", "light"],
+          "species": ["chrome"]
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "width": 48,
+      "height": 48,
+      "path": "assets/icons/icon-48.png",
+      "scale": [1, 2],
+      "theme": ["darkest", "dark", "light", "lightest"],
+      "species": ["pluginList"]
+    }
+  ]
+}

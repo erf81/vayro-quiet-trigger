@@ -1,0 +1,2 @@
+13482bc15f36611461b6d7f136c50d6673bc8752f42470f77b41b0931c51b555  VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe
+1dc64e38df5ada60cdf0b142e0c3f8cd9a4f56ed53845367b6251ef49043b60b  VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx

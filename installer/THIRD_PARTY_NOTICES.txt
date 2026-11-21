@@ -1,0 +1,32 @@
+VAYRO — QUIET TRIGGER 2.1.0
+THIRD-PARTY SOFTWARE NOTICES AND LICENSES
+===============================================================================
+
+Quiet Trigger by VAYRO bundles or interacts with the following third-party
+components. All trademarks belong to their respective owners.
+
+1. Node.js Portable Runtime (v24.20.0)
+   Website : https://nodejs.org/
+   License : MIT License
+   Notice  : Copyright Node.js contributors. All rights reserved.
+   Summary : Bundled as a local runtime (runtime\node.exe) solely to run the
+             loopback-only local communication bridge (127.0.0.1:47821) so
+             end users do not need to install Node.js globally.
+   Included subcomponents (V8, libuv, OpenSSL, zlib, etc.) are redistributed
+   under their respective open-source licenses as distributed by the Node.js
+   project (https://github.com/nodejs/node/blob/main/LICENSE).
+
+2. Inno Setup (Installer Framework)
+   Website : https://jrsoftware.org/isinfo.php
+   License : Inno Setup License (Copyright (C) 1997-2026 Jordan Russell;
+             Portions Copyright (C) 2000-2026 Martijn Laan)
+
+3. Adobe Photoshop & Adobe UXP
+   Adobe and Photoshop are registered trademarks of Adobe Inc.
+   Quiet Trigger by VAYRO is an independent third-party plugin and is not
+   affiliated with, endorsed by, or sponsored by Adobe Inc.
+
+===============================================================================
+Quiet Trigger by VAYRO — Licensing Status:
+No open-source or commercial distribution license has been selected yet for
+the Quiet Trigger source code itself pending an explicit owner decision.
