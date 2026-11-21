@@ -16,7 +16,11 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { sanitizeTheme, createThemeFromPreset } = require('../src/theme/themeSystem.js');
+const installedThemePath = path.resolve(__dirname, '..', 'src', 'theme', 'themeSystem.js');
+const repoThemePath = path.resolve(__dirname, '..', '..', 'photoshop-plugin', 'src', 'theme', 'themeSystem.js');
+const { sanitizeTheme, createThemeFromPreset } = require(
+  fs.existsSync(installedThemePath) ? installedThemePath : repoThemePath
+);
 
 const WS_GUID = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11';
 

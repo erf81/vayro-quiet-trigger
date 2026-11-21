@@ -3,21 +3,21 @@
 
 <#
 .SYNOPSIS
-  Compiles VAYRO Quiet Trigger's native silent Windows Background Helper (QuietTriggerHelper.exe).
+  Compiles Quiet Trigger's native silent Windows Background Helper (QuietTriggerHelper.exe).
   Uses Windows' built-in .NET Framework 4.x C# compiler (csc.exe) with zero external SDK required.
 #>
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-$rootDir = Split-Path -Parent $PSScriptRoot
-$srcCs   = Join-Path $rootDir "installer\src\QuietTriggerHelper.cs"
-$icoPath = Join-Path $rootDir "assets\brand\quiet-trigger.ico"
+$rootDir = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+$srcCs   = Join-Path $rootDir "companion\tray\QuietTriggerHelper.cs"
+$icoPath = Join-Path $rootDir "assets\brand\quiet-trigger\quiet-trigger.ico"
 $outDir  = Join-Path $rootDir "installer\build"
 $outExe  = Join-Path $outDir "QuietTriggerHelper.exe"
 
 if (-not (Test-Path $icoPath)) {
     Write-Host "Generating brand icons first..."
-    node (Join-Path $rootDir "scripts\generate-icons.js")
+    node (Join-Path $rootDir "scripts\build\generate-icons.js")
 }
 
 New-Item -ItemType Directory -Path $outDir -Force | Out-Null

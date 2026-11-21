@@ -5,7 +5,7 @@ const assert = require('node:assert/strict');
 const http = require('http');
 const net = require('net');
 const crypto = require('crypto');
-const { createBridgeServer } = require('../hotkey-helper/bridge-server');
+const { createBridgeServer } = require('../../companion/bridge/bridge-server');
 
 function httpRequest(port, path, method = 'GET', headers = {}, body = null) {
   return new Promise((resolve, reject) => {
@@ -123,7 +123,7 @@ test('Bridge server completes WebSocket handshake and dispatches execute command
 });
 
 test('Bridge server reassembles fragmented RFC 6455 WebSocket frames and handles contextUpdate', async () => {
-  const { decodeWsFrames } = require('../hotkey-helper/bridge-server');
+  const { decodeWsFrames } = require('../../companion/bridge/bridge-server');
   const fullJson = JSON.stringify({ type: 'contextUpdate', favorites: ['adjust.curves'], context: { hasDocument: true } });
   const buf = Buffer.from(fullJson, 'utf8');
   const mid = Math.floor(buf.length / 2);
@@ -267,7 +267,7 @@ test('Safe atomic migration from ZAU Console 2.0.0 preserves token & themes and 
   const fs = require('fs');
   const os = require('os');
   const path = require('path');
-  const { migrateLegacyZauData, ensurePhotoshopPluginPairing } = require('../hotkey-helper/bridge-server');
+  const { migrateLegacyZauData, ensurePhotoshopPluginPairing } = require('../../companion/bridge/bridge-server');
 
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'vayro-mig-'));
   const fakeLocal = path.join(tmpRoot, 'LocalAppData');

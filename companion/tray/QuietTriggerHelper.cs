@@ -308,7 +308,7 @@ namespace Vayro.QuietTrigger
             _appDir = appDir;
             _config = HelperConfig.Load();
 
-            // Resolve bundled runtime & scripts (works both when installed and in dev workspace)
+            // Resolve bundled runtime & scripts (works both when installed and in refactored dev repo)
             _nodeExe = ResolveFirstExisting(
                 Path.Combine(_appDir, "runtime", "node.exe"),
                 Path.Combine(_appDir, "node.exe"),
@@ -316,19 +316,21 @@ namespace Vayro.QuietTrigger
             );
             _bridgeScript = ResolveFirstExisting(
                 Path.Combine(_appDir, "bridge", "bridge-server.js"),
-                Path.Combine(_appDir, "hotkey-helper", "bridge-server.js"),
-                Path.GetFullPath(Path.Combine(_appDir, "..", "..", "hotkey-helper", "bridge-server.js"))
+                Path.Combine(_appDir, "companion", "bridge", "bridge-server.js"),
+                Path.GetFullPath(Path.Combine(_appDir, "..", "..", "companion", "bridge", "bridge-server.js"))
             );
             _paletteScript = ResolveFirstExisting(
+                Path.Combine(_appDir, "palette", "quiet-trigger-palette.ps1"),
                 Path.Combine(_appDir, "palette", "zau-palette.ps1"),
-                Path.Combine(_appDir, "hotkey-helper", "zau-palette.ps1"),
-                Path.GetFullPath(Path.Combine(_appDir, "..", "..", "hotkey-helper", "zau-palette.ps1"))
+                Path.Combine(_appDir, "companion", "windows-helper", "quiet-trigger-palette.ps1"),
+                Path.GetFullPath(Path.Combine(_appDir, "..", "..", "companion", "windows-helper", "quiet-trigger-palette.ps1"))
             );
 
             string icoPath = ResolveFirstExisting(
+                Path.Combine(_appDir, "assets", "brand", "quiet-trigger", "quiet-trigger.ico"),
                 Path.Combine(_appDir, "assets", "brand", "quiet-trigger.ico"),
                 Path.Combine(_appDir, "quiet-trigger.ico"),
-                Path.GetFullPath(Path.Combine(_appDir, "..", "..", "assets", "brand", "quiet-trigger.ico"))
+                Path.GetFullPath(Path.Combine(_appDir, "..", "..", "assets", "brand", "quiet-trigger", "quiet-trigger.ico"))
             );
             _trayIconAsset = File.Exists(icoPath)
                 ? new Icon(icoPath)

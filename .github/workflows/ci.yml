@@ -2,7 +2,7 @@ name: CI & Security Validation
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 'refactor/**' ]
   pull_request:
     branches: [ main ]
 
@@ -22,27 +22,29 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Run automated test suite (28 tests)
-        run: node --test tests/*.test.js
+      - name: Run automated test suite (unit & integration)
+        run: npm test
 
-      - name: Validate Apache-2.0 license, notices & manifest metadata
+      - name: Validate Apache-2.0 license, notices & Photoshop UXP manifest
         run: |
           test -f LICENSE
           test -f NOTICE
           test -f TRADEMARKS.md
           test -f THIRD_PARTY_NOTICES.txt
+          test -f photoshop-plugin/manifest.json
           node -e "
             const pkg = require('./package.json');
-            const man = require('./manifest.json');
+            const man = require('./photoshop-plugin/manifest.json');
             if (pkg.license !== 'Apache-2.0') throw new Error('Expected Apache-2.0 in package.json');
             if (man.id !== 'com.zau.photoshop.console') throw new Error('Unexpected UXP plugin id');
-            console.log('Metadata OK:', pkg.name, pkg.version, pkg.license, man.id);
+            if (man.name !== 'Quiet Trigger') throw new Error('Unexpected UXP display name');
+            console.log('Metadata OK:', pkg.name, pkg.version, pkg.license, man.id, man.name);
           "
 
-      - name: Validate Photoshop UXP CCX build
+      - name: Validate Photoshop UXP CCX build (non-destructive output dir)
         run: |
-          node scripts/build-ccx.js
-          test -f "dist/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx"
+          node scripts/build/build-ccx.js --out-dir build-verify
+          test -f "build-verify/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx"
 
   secret-scan:
     name: Gitleaks Full History Secret Scan

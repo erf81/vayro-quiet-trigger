@@ -2,25 +2,31 @@
 ; SPDX-License-Identifier: Apache-2.0
 
 ; ============================================================================
-; VAYRO — Quiet Trigger 2.1.0 Single-File Windows Installer (Inno Setup 6)
+; Quiet Trigger Setup (Published by VAYRO) — Single-File Windows Installer
 ; "Less searching. More creating."
 ;
 ; Bundles:
-;   - Official Adobe Photoshop UXP package (VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx)
+;   - Official Adobe Photoshop UXP package (VAYRO-Quiet-Trigger-Photoshop-<ver>.ccx)
 ;   - Silent Native Windows Background Helper & System Tray (QuietTriggerHelper.exe)
-;   - Local Loopback Bridge Server (bridge-server.js + shared themeSystem.js)
+;   - Local Loopback Bridge Server (companion\bridge\bridge-server.js + themeSystem.js)
 ;   - Bundled Portable Node.js Runtime (runtime\node.exe — zero global Node needed)
-;   - Floating WPF Command Palette & VAYRO Theme Studio
+;   - Floating WPF Command Palette & VAYRO Theme Studio (quiet-trigger-palette.ps1)
 ;   - Per-user automatic startup (HKCU Run, no UAC admin prompt required)
 ;   - Safe ZAU Console 2.0.0 upgrade & clean Windows Uninstaller
 ; ============================================================================
 
+#ifndef MyAppVersion
+  #define MyAppVersion "2.1.0"
+#endif
+#ifndef CcxDir
+  #define CcxDir "..\dist"
+#endif
+
 #define MyAppName "Quiet Trigger"
 #define MyAppPublisher "VAYRO"
-#define MyAppVersion "2.1.0"
 #define MyAppFullName "Quiet Trigger by VAYRO"
 #define MyAppExeName "QuietTriggerHelper.exe"
-#define MyCcxName "VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx"
+#define MyCcxName "VAYRO-Quiet-Trigger-Photoshop-" + MyAppVersion + ".ccx"
 
 [Setup]
 AppId={{B4E7F2A1-8C93-4D6E-9B12-5F0A8E3D2100}
@@ -28,7 +34,7 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppFullName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppComments=Less searching. More creating.
+AppComments=Quiet Trigger Setup — Published by VAYRO. Less searching. More creating.
 DefaultDirName={localappdata}\Programs\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppPublisher}\{#MyAppName}
 DisableProgramGroupPage=yes
@@ -37,12 +43,12 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 OutputDir=..\dist
 OutputBaseFilename=VAYRO-Quiet-Trigger-Setup-{#MyAppVersion}-x64
-SetupIconFile=..\assets\brand\quiet-trigger.ico
+SetupIconFile=..\assets\brand\quiet-trigger\quiet-trigger.ico
 UninstallDisplayIcon={app}\{#MyAppExeName}
 UninstallDisplayName={#MyAppFullName}
 WizardStyle=modern
-WizardImageFile=..\assets\brand\installer-sidebar.bmp
-WizardSmallImageFile=..\assets\brand\installer-header.bmp
+WizardImageFile=..\assets\brand\quiet-trigger\installer-sidebar.bmp
+WizardSmallImageFile=..\assets\brand\quiet-trigger\installer-header.bmp
 Compression=lzma2/max
 SolidCompression=yes
 CloseApplications=yes
@@ -62,14 +68,14 @@ Source: "build\QuietTriggerHelper.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; Bundled portable Node.js runtime (eliminates any global Node.js requirement)
 Source: "stage\runtime\node.exe"; DestDir: "{app}\runtime"; Flags: ignoreversion
 ; Local loopback bridge server & shared Aurora theme schema
-Source: "..\hotkey-helper\bridge-server.js"; DestDir: "{app}\bridge"; Flags: ignoreversion
-Source: "..\src\theme\themeSystem.js"; DestDir: "{app}\src\theme"; Flags: ignoreversion
+Source: "..\companion\bridge\bridge-server.js"; DestDir: "{app}\bridge"; Flags: ignoreversion
+Source: "..\photoshop-plugin\src\theme\themeSystem.js"; DestDir: "{app}\src\theme"; Flags: ignoreversion
 ; Floating WPF command palette & VAYRO Theme Studio
-Source: "..\hotkey-helper\zau-palette.ps1"; DestDir: "{app}\palette"; Flags: ignoreversion
+Source: "..\companion\windows-helper\quiet-trigger-palette.ps1"; DestDir: "{app}\palette"; Flags: ignoreversion
 ; Official Adobe Photoshop UXP CCX package
-Source: "..\dist\{#MyCcxName}"; DestDir: "{app}\plugin"; Flags: ignoreversion
+Source: "{#CcxDir}\{#MyCcxName}"; DestDir: "{app}\plugin"; Flags: ignoreversion
 ; Brand icon & installer helper scripts
-Source: "..\assets\brand\quiet-trigger.ico"; DestDir: "{app}\assets\brand"; Flags: ignoreversion
+Source: "..\assets\brand\quiet-trigger\quiet-trigger.ico"; DestDir: "{app}\assets\brand\quiet-trigger"; Flags: ignoreversion
 Source: "scripts\install-uxp-plugin.ps1"; DestDir: "{app}\scripts"; Flags: ignoreversion
 Source: "scripts\uninstall-uxp-plugin.ps1"; DestDir: "{app}\scripts"; Flags: ignoreversion
 ; Third-party notices & docs
@@ -77,10 +83,10 @@ Source: "THIRD_PARTY_NOTICES.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\docs\THEME_STUDIO.md"; DestDir: "{app}\docs"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\Quiet Trigger"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--open"; IconFilename: "{app}\assets\brand\quiet-trigger.ico"; Comment: "Open Quiet Trigger by VAYRO"
-Name: "{group}\VAYRO Theme Studio"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--studio"; IconFilename: "{app}\assets\brand\quiet-trigger.ico"; Comment: "Customize Quiet Trigger themes"
-Name: "{group}\Quiet Trigger Settings"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--settings"; IconFilename: "{app}\assets\brand\quiet-trigger.ico"; Comment: "Configure hotkey & startup"
-Name: "{group}\Uninstall Quiet Trigger"; Filename: "{uninstallexe}"; IconFilename: "{app}\assets\brand\quiet-trigger.ico"
+Name: "{group}\Quiet Trigger"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--open"; IconFilename: "{app}\assets\brand\quiet-trigger\quiet-trigger.ico"; Comment: "Open Quiet Trigger by VAYRO"
+Name: "{group}\VAYRO Theme Studio"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--studio"; IconFilename: "{app}\assets\brand\quiet-trigger\quiet-trigger.ico"; Comment: "Customize Quiet Trigger themes"
+Name: "{group}\Quiet Trigger Settings"; Filename: "{app}\{#MyAppExeName}"; Parameters: "--settings"; IconFilename: "{app}\assets\brand\quiet-trigger\quiet-trigger.ico"; Comment: "Configure hotkey & startup"
+Name: "{group}\Uninstall Quiet Trigger"; Filename: "{uninstallexe}"; IconFilename: "{app}\assets\brand\quiet-trigger\quiet-trigger.ico"
 
 [Registry]
 ; Clean per-user Windows Startup entry (no admin elevation required, automatically removed on uninstall)

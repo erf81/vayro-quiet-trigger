@@ -2,7 +2,7 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { createDefaultRegistry, CATEGORIES } = require('../src/commands');
+const { createDefaultRegistry, CATEGORIES } = require('../../photoshop-plugin/src/commands');
 
 test('CommandRegistry loads all 8 categories with unique IDs and real handlers', () => {
   const registry = createDefaultRegistry();

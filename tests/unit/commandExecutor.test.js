@@ -2,10 +2,10 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { setMockEnv } = require('../src/core/psEnv');
-const { evaluateCommandAvailability, DEFAULT_CONTEXT } = require('../src/core/contextDetector');
-const { CommandExecutor } = require('../src/core/commandExecutor');
-const { createDefaultRegistry } = require('../src/commands');
+const { setMockEnv } = require('../../photoshop-plugin/src/core/psEnv');
+const { evaluateCommandAvailability, DEFAULT_CONTEXT } = require('../../photoshop-plugin/src/core/contextDetector');
+const { CommandExecutor } = require('../../photoshop-plugin/src/core/commandExecutor');
+const { createDefaultRegistry } = require('../../photoshop-plugin/src/commands');
 
 const registry = createDefaultRegistry();
 
