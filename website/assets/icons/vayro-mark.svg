@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="vayroParentGrad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4EA5FF"/>
+      <stop offset="52%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC69B9"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#0F1320" stroke="#2B3552" stroke-width="2"/>
+  <path d="M17 18L32 46L47 18" stroke="url(#vayroParentGrad)" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M25 18H39" stroke="#F2F6FF" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/>
+</svg>

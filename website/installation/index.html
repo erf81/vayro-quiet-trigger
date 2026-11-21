@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &amp; Compatibility Guide — Quiet Trigger by VAYRO</title>
+  <meta name="description" content="Step-by-step installation guide for Quiet Trigger v2.1.0: Windows Installer (.exe), Photoshop-only CCX via Adobe UPIA, SHA-256 verification, ZAU Console upgrade, and uninstallation." />
+  <link rel="canonical" href="https://vayrodev.github.io/vayro-quiet-trigger/installation/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VAYRO Studio" />
+  <meta property="og:title" content="Installation &amp; Compatibility Guide — Quiet Trigger by VAYRO" />
+  <meta property="og:description" content="How to install, verify SHA-256 checksums, upgrade from ZAU Console 2.0.0, and uninstall Quiet Trigger cleanly on Windows and Adobe Photoshop." />
+  <meta property="og:url" content="https://vayrodev.github.io/vayro-quiet-trigger/installation/" />
+  <meta property="og:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Installation Guide — Quiet Trigger by VAYRO" />
+  <meta name="twitter:description" content="Complete Windows Installer and Photoshop-only CCX installation steps with SHA-256 verification." />
+  <meta name="twitter:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="icon" href="../assets/icons/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#090c15" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vayrodev.github.io/vayro-quiet-trigger/" },
+      { "@type": "ListItem", "position": 2, "name": "Installation", "item": "https://vayrodev.github.io/vayro-quiet-trigger/installation/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="../">
+        <img class="brand-icon" src="../assets/icons/favicon.svg" alt="Quiet Trigger by VAYRO icon" width="34" height="34" />
+        <span class="brand-text">
+          <span class="brand-studio">VAYRO Studio</span>
+          <span class="brand-product">Quiet Trigger</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="primary-nav" data-nav-menu>
+          <li><a href="../">Home</a></li>
+          <li><a href="../features/">Features</a></li>
+          <li><a href="../download/">Download</a></li>
+          <li><a href="./" aria-current="page">Installation</a></li>
+          <li><a href="../documentation/">Documentation</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+          <li><a href="../support/">Support</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="lang-switch" href="../fa/" hreflang="fa" lang="fa">فارسی</a>
+        <a class="btn btn-primary btn-sm" href="../download/">Download v2.1.0</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Installation</span></nav>
+        <h1>Installation, Verification &amp; Compatibility</h1>
+        <p>Follow the official steps below to install Quiet Trigger cleanly without manually copying files into Adobe-managed plugin folders.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-2">
+          <article class="card card-highlight">
+            <span class="badge badge-pass" style="margin-bottom:10px;">Option A · Recommended</span>
+            <h2>Complete Windows Installer</h2>
+            <ol style="color:var(--text-secondary);padding-inline-start:20px;">
+              <li>Download <code>VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe</code> from the <a href="../download/">Download page</a>.</li>
+              <li>Verify its SHA-256 hash using PowerShell (see below).</li>
+              <li>Run the installer. Because v2.1.0 is currently unsigned, click <strong>More info → Run anyway</strong> in Windows SmartScreen only after confirming the SHA-256 checksum matches.</li>
+              <li>Keep both default options checked:
+                <ul>
+                  <li>Start Quiet Trigger automatically when signing in to Windows</li>
+                  <li>Install or upgrade the Quiet Trigger plugin in Adobe Photoshop</li>
+                </ul>
+              </li>
+              <li>Launch <strong>Adobe Photoshop 2025</strong> and press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd>.</li>
+            </ol>
+          </article>
+
+          <article class="card">
+            <span class="badge badge-info" style="margin-bottom:10px;">Option B · Docked Panel Only</span>
+            <h2>Photoshop-Only CCX Package</h2>
+            <p>Choose this option only if you want the docked UXP panel inside Photoshop without the floating Windows palette or global hotkey.</p>
+            <ol style="color:var(--text-secondary);padding-inline-start:20px;">
+              <li>Download <code>VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx</code>.</li>
+              <li>Double-click the <code>.ccx</code> file to install via <strong>Adobe Creative Cloud Desktop</strong>, or install via Adobe's official Unified Plugin Installer Agent (UPIA) CLI:</li>
+            </ol>
+            <pre><code>"C:\Program Files\Common Files\Adobe\Adobe Desktop Common\RemoteComponents\UPI\UnifiedPluginInstallerAgent\UnifiedPluginInstallerAgent.exe" /install "C:\Path\To\VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx"</code></pre>
+            <p style="font-size:0.9rem;">Restart Photoshop and open <strong>Plugins → Quiet Trigger → Quiet Trigger</strong>.</p>
+          </article>
+        </div>
+
+        <div class="card" id="verify-hash" style="margin-top:24px;">
+          <h3>Verify SHA-256 Checksum on Windows (PowerShell)</h3>
+          <pre><code>Get-FileHash .\VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe -Algorithm SHA256</code></pre>
+          <p>Expected Installer SHA-256: <code>13482bc15f36611461b6d7f136c50d6673bc8752f42470f77b41b0931c51b555</code></p>
+          <p>Expected CCX SHA-256: <code>1dc64e38df5ada60cdf0b142e0c3f8cd9a4f56ed53845367b6251ef49043b60b</code></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="compatibility">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Compatibility Matrix</span>
+          <h2>Supported Systems &amp; Adobe Photoshop Versions</h2>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Supported / Verified Target</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Adobe Photoshop UXP Plugin</strong></td>
+                <td>Live-verified on <strong>Adobe Photoshop 2025 v26.8.1</strong> (64-bit); manifest <code>minVersion: 24.0.0</code></td>
+                <td>UXP Manifest v5, Photoshop API v2. Preserved independent plugin ID: <code>com.zau.photoshop.console</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>Windows Floating Companion &amp; Tray Helper</strong></td>
+                <td>Windows 10 / Windows 11 (64-bit)</td>
+                <td>Live-verified on Windows 10 Enterprise x64 (10.0.19043). Uses .NET Framework 4.x, Windows PowerShell 5.1/WPF, and bundled portable Node.js v24.20.0.</td>
+              </tr>
+              <tr>
+                <td><strong>macOS</strong></td>
+                <td>Photoshop-only <code>.ccx</code> docked panel only (not yet live-verified on macOS)</td>
+                <td>The floating companion (<code>QuietTriggerHelper.exe</code> and WPF palette) is Windows-only in v2.1.0.</td>
+              </tr>
+              <tr>
+                <td><strong>Privileges</strong></td>
+                <td>Standard Windows user (no Administrator / UAC prompt)</td>
+                <td>Installs to <code>%LOCALAPPDATA%\Programs\VAYRO\Quiet Trigger\</code> and registers per-user startup under <code>HKCU\...\Run</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="card">
+          <h3>Upgrading from ZAU Console 2.0.0</h3>
+          <p>Quiet Trigger preserves the internal UXP plugin ID (<code>com.zau.photoshop.console</code>) and panel ID (<code>zauConsolePanel</code>) so upgrades never create duplicate plugins.</p>
+          <ul>
+            <li>The installer automatically backs up your Photoshop <code>PluginData</code> JSON, upgrades the plugin via Adobe UPIA, and restores your Favorites and Recents.</li>
+            <li>Legacy settings in <code>%LOCALAPPDATA%\ZAU-Console\</code> are atomically migrated to <code>%LOCALAPPDATA%\VAYRO\Quiet Trigger\</code> with a backup copy preserved.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Clean Uninstallation</h3>
+          <ol style="color:var(--text-secondary);padding-inline-start:20px;">
+            <li>Open <strong>Windows Settings → Apps → Installed Apps</strong>, locate <strong>Quiet Trigger by VAYRO</strong>, and click <strong>Uninstall</strong>.</li>
+            <li>The uninstaller stops <code>QuietTriggerHelper.exe</code> and its bundled local bridge, removes startup entries and Start Menu shortcuts, and deletes installed program files.</li>
+            <li>You are asked whether to also uninstall the Photoshop UXP plugin via Adobe UPIA and whether to keep your saved themes and Favorites (<strong>kept by default</strong>).</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0;padding-top:0;">
+        <span>© 2026 VAYRO Studio · <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../support/">Support</a> · <a href="https://github.com/vayrodev/vayro-quiet-trigger" rel="noopener">GitHub</a></span>
+        <span>Adobe and Photoshop are trademarks of Adobe Inc. Independent third-party UXP plugin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

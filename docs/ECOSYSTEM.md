@@ -21,10 +21,10 @@ VAYRO (Parent Software Brand / Publisher)
 ---
 
 ## 2. Repository & Naming Conventions
-- **Repository Slug**: `vayro-<product-slug>` (e.g., `erf81/vayro-quiet-trigger`).
+- **Repository Slug**: `vayro-<product-slug>` (e.g., `vayrodev/vayro-quiet-trigger`).
 - **Repository Description**: `<Product> by VAYRO — <concise one-line description>.`
 - **Default Branch**: `main` (protected by CI; structural changes reviewed via pull requests).
-- **Ownership**: Individual products remain under maintainer `erf81` until an explicit future organizational decision is made.
+- **Ownership**: Individual products remain under canonical GitHub account `vayrodev` until an explicit future organizational decision is made.
 
 ---
 

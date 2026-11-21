@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support &amp; Security Contact — Quiet Trigger by VAYRO | VAYRO Studio</title>
+  <meta name="description" content="Get support for Quiet Trigger by VAYRO: report bugs on GitHub Issues, report security vulnerabilities privately via GitHub Security Advisories, and check troubleshooting steps." />
+  <link rel="canonical" href="https://vayrodev.github.io/vayro-quiet-trigger/support/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VAYRO Studio" />
+  <meta property="og:title" content="Support &amp; Security Contact — Quiet Trigger by VAYRO" />
+  <meta property="og:description" content="Official support channels, troubleshooting steps, and private security reporting for Quiet Trigger by VAYRO." />
+  <meta property="og:url" content="https://vayrodev.github.io/vayro-quiet-trigger/support/" />
+  <meta property="og:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Support — Quiet Trigger by VAYRO" />
+  <meta name="twitter:description" content="Official support channels and private security reporting for Quiet Trigger." />
+  <meta name="twitter:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="icon" href="../assets/icons/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#090c15" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="../">
+        <img class="brand-icon" src="../assets/icons/favicon.svg" alt="Quiet Trigger by VAYRO icon" width="34" height="34" />
+        <span class="brand-text">
+          <span class="brand-studio">VAYRO Studio</span>
+          <span class="brand-product">Quiet Trigger</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="primary-nav" data-nav-menu>
+          <li><a href="../">Home</a></li>
+          <li><a href="../features/">Features</a></li>
+          <li><a href="../download/">Download</a></li>
+          <li><a href="../installation/">Installation</a></li>
+          <li><a href="../documentation/">Documentation</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+          <li><a href="./" aria-current="page">Support</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="lang-switch" href="../fa/" hreflang="fa" lang="fa">فارسی</a>
+        <a class="btn btn-primary btn-sm" href="../download/">Download v2.1.0</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Support</span></nav>
+        <h1>Support &amp; Security Contact</h1>
+        <p>Official community support channels, troubleshooting checklist, and responsible vulnerability disclosure for Quiet Trigger by VAYRO.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="card card-highlight">
+          <span class="badge badge-info" style="margin-bottom:10px;">Bugs &amp; Feature Requests</span>
+          <h2>GitHub Issues</h2>
+          <p>Open a public issue on the canonical GitHub repository for bug reports, Photoshop compatibility feedback, command requests, or installation help.</p>
+          <ul>
+            <li>Include your <strong>Quiet Trigger version</strong> (e.g. <code>2.1.0</code>)</li>
+            <li>Include your <strong>Adobe Photoshop version</strong> and <strong>Windows version</strong></li>
+            <li>Describe reproduction steps — <strong>never paste real session tokens or private PSD files</strong></li>
+          </ul>
+          <p style="margin-top:16px;">
+            <a class="btn btn-primary btn-sm" href="https://github.com/vayrodev/vayro-quiet-trigger/issues" rel="noopener">Open GitHub Issues</a>
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="badge badge-warn" style="margin-bottom:10px;">Responsible Disclosure</span>
+          <h2>Private Security Reporting</h2>
+          <p>Do <strong>not</strong> post suspected security vulnerabilities, loopback bridge bypasses, or leaked credentials in public issues or pull requests.</p>
+          <p>Report security concerns privately via GitHub's <strong>Private Vulnerability Reporting</strong> (Security Advisories) on <code>vayrodev/vayro-quiet-trigger</code>.</p>
+          <p style="margin-top:16px;">
+            <a class="btn btn-secondary btn-sm" href="https://github.com/vayrodev/vayro-quiet-trigger/security" rel="noopener">GitHub Security Advisories</a>
+          </p>
+        </article>
+      </div>
+
+      <div class="container" style="margin-top: 24px;">
+        <div class="card">
+          <h3>Quick Troubleshooting Checklist</h3>
+          <ul>
+            <li><strong>Global hotkey does not open floating palette:</strong> Verify you installed the <em>Complete Windows Installer</em> (<code>.exe</code>), not only the <code>.ccx</code>; verify Adobe Photoshop is the active foreground window; check the Quiet Trigger tray icon to confirm the hotkey is not paused.</li>
+            <li><strong>Floating palette shows Photoshop disconnected:</strong> Open Adobe Photoshop and confirm the Quiet Trigger UXP plugin is enabled under <code>Plugins → Quiet Trigger</code>. Restart Photoshop once after first-time installation so UXP loads the paired local bridge token.</li>
+            <li><strong>A command reports a guard message:</strong> Some commands require an open document, an unlocked layer, or a non-Text pixel/Smart Object layer. See the <a href="../documentation/#command-matrix">98-Command Matrix</a> for exact requirements.</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-info">
+          <div class="callout-title">Public Support Email Status</div>
+          <p style="margin:0;color:var(--text-secondary);">
+            VAYRO Studio currently handles all public support through GitHub Issues and Security Advisories to protect maintainer privacy. A dedicated non-personal support email address will be published here once provisioned for Adobe Creative Cloud Marketplace distribution.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0;padding-top:0;">
+        <span>© 2026 VAYRO Studio · <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="./">Support</a> · <a href="https://github.com/vayrodev/vayro-quiet-trigger" rel="noopener">GitHub</a></span>
+        <span>Adobe and Photoshop are trademarks of Adobe Inc. Independent third-party UXP plugin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

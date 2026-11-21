@@ -29,5 +29,5 @@ npm run security:scan   # Run Gitleaks full-history & working-tree scan
 
 ## Pull Requests & Issue Triage
 - Open an issue describing the bug, Photoshop version, OS version, and reproduction steps (do not post private tokens or personal artwork).
-- Pull requests are checked by GitHub Actions CI (`node --test tests/*.test.js`, license/metadata validation, CCX packaging, dependency review, and Gitleaks secret scanning) and are reviewed manually by the maintainer (`erf81`) prior to merge.
+- Pull requests are checked by GitHub Actions CI (`npm test`, license/metadata validation, CCX packaging, dependency review, and Gitleaks secret scanning) and are reviewed manually by the maintainer (`vayrodev`) prior to merge.
 - Releases are built, checksummed, and published manually by the maintainer; CI never publishes releases automatically.
