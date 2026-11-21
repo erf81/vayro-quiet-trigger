@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Quiet Trigger by VAYRO | Adobe Photoshop Command Palette</title>
+  <meta name="description" content="Answers to common questions about Quiet Trigger by VAYRO: Windows Installer vs CCX, Photoshop compatibility, 92/98 verified commands, offline privacy, and SmartScreen verification." />
+  <link rel="canonical" href="https://vayrodev.github.io/vayro-quiet-trigger/faq/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VAYRO Studio" />
+  <meta property="og:title" content="FAQ — Quiet Trigger by VAYRO" />
+  <meta property="og:description" content="Frequently asked questions about installing, using, securing, and upgrading Quiet Trigger in Adobe Photoshop." />
+  <meta property="og:url" content="https://vayrodev.github.io/vayro-quiet-trigger/faq/" />
+  <meta property="og:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ — Quiet Trigger by VAYRO" />
+  <meta name="twitter:description" content="Answers to common questions about Quiet Trigger for Adobe Photoshop." />
+  <meta name="twitter:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="icon" href="../assets/icons/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#090c15" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vayrodev.github.io/vayro-quiet-trigger/" },
+          { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://vayrodev.github.io/vayro-quiet-trigger/faq/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between the Windows Installer (.exe) and the Photoshop-only CCX (.ccx)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Complete Windows Installer (.exe) installs both the Adobe Photoshop UXP plugin and the floating Windows companion (Ctrl + Alt + Space shortcut, frosted WPF palette, silent system tray helper, and bundled portable Node.js loopback bridge). The Photoshop-only .ccx package installs only the docked panel inside Adobe Photoshop and does not install the floating Windows companion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Adobe Photoshop versions are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Quiet Trigger is built on Adobe UXP Manifest v5 and Photoshop API v2 with a manifest minVersion of 24.0.0. It has been live-verified end-to-end on Adobe Photoshop 2025 v26.8.1 (64-bit) on Windows 10 Enterprise x64."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why are 92 of 98 commands live-verified and 6 marked with documented limitations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "92 commands passed live state or dialog verification in Photoshop 2025 v26.8.1. Four commands (Lens Blur, Blur Gallery Field Blur, Liquify, and Camera Raw Filter) open full-screen Photoshop GPU workspaces requiring interactive OK/Cancel inside Photoshop's UI, and two commands (Select Subject and Remove Background) invoke Photoshop's native Adobe Sensei AI models which require active Adobe authentication and a recognizable photographic subject."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Quiet Trigger send telemetry or connect to the Internet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Quiet Trigger runs locally on your machine. Its bridge binds strictly to 127.0.0.1:47821 with a 256-bit constant-time session token and never sends analytics, commands, or artwork to external servers. Only the two native Adobe Sensei commands rely on Photoshop's own cloud processing when invoked."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does Windows SmartScreen show an Unknown publisher warning?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "v2.1.0 is an initial open-source public release built without a commercial Authenticode code-signing certificate. Always verify the downloaded file's SHA-256 hash against the published checksums.txt before running the installer."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="../">
+        <img class="brand-icon" src="../assets/icons/favicon.svg" alt="Quiet Trigger by VAYRO icon" width="34" height="34" />
+        <span class="brand-text">
+          <span class="brand-studio">VAYRO Studio</span>
+          <span class="brand-product">Quiet Trigger</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="primary-nav" data-nav-menu>
+          <li><a href="../">Home</a></li>
+          <li><a href="../features/">Features</a></li>
+          <li><a href="../download/">Download</a></li>
+          <li><a href="../installation/">Installation</a></li>
+          <li><a href="../documentation/">Documentation</a></li>
+          <li><a href="./" aria-current="page">FAQ</a></li>
+          <li><a href="../support/">Support</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="lang-switch" href="../fa/" hreflang="fa" lang="fa">فارسی</a>
+        <a class="btn btn-primary btn-sm" href="../download/">Download v2.1.0</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>FAQ</span></nav>
+        <h1>Frequently Asked Questions</h1>
+        <p>Clear, factual answers about installation packages, Photoshop compatibility, verified commands, security, and upgrades.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>What is the difference between the Windows Installer (.exe) and the Photoshop-only CCX (.ccx)?</summary>
+            <div class="faq-body">
+              <p><strong>Complete Windows Installer (<code>VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe</code>)</strong> installs the Photoshop UXP plugin <em>plus</em> the floating Windows WPF command palette, silent system tray helper (<code>QuietTriggerHelper.exe</code>), global <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd> shortcut, and bundled portable Node.js loopback bridge.</p>
+              <p><strong>Photoshop-only CCX (<code>VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx</code>)</strong> installs <em>only</em> the docked UXP panel inside Adobe Photoshop. Installing the <code>.ccx</code> alone does <strong>not</strong> install the floating Windows companion or global hotkey.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" open>
+            <summary>Which Adobe Photoshop versions and operating systems are supported?</summary>
+            <div class="faq-body">
+              <p>Quiet Trigger uses Adobe UXP Manifest v5 and Photoshop API v2 with a declared manifest <code>minVersion</code> of <code>24.0.0</code>. End-to-end live verification was completed on <strong>Windows 10 Enterprise x64</strong> with <strong>Adobe Photoshop 2025 v26.8.1</strong>.</p>
+              <p>The floating Windows companion is built for Windows 10 and Windows 11 (64-bit). macOS users who install the standalone <code>.ccx</code> can access only the docked UXP panel (macOS has not yet been live-verified by VAYRO Studio).</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why are 92 of 98 commands live-verified and 6 listed with limitations?</summary>
+            <div class="faq-body">
+              <p>During live QA in Adobe Photoshop 2025 v26.8.1, <strong>92 commands passed</strong> full automated state or native dialog verification (67 state-verified + 25 native dialog verified).</p>
+              <p>The remaining 6 commands work inside Photoshop but have inherent host constraints: 4 open full-screen GPU workspaces (<code>Lens Blur</code>, <code>Field Blur</code>, <code>Liquify</code>, <code>Camera Raw Filter</code>) requiring interactive OK/Cancel inside Photoshop's UI, and 2 (<code>Select Subject</code>, <code>Remove Background</code>) depend on Adobe Sensei cloud/ML models and recognizable photo subjects.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does Quiet Trigger require global Node.js, AutoHotkey, or Administrator rights?</summary>
+            <div class="faq-body">
+              <p>No. The Complete Windows Installer runs per-user (<code>PrivilegesRequired=lowest</code>, zero UAC prompt) and bundles its own portable Node.js v24.20.0 runtime strictly for the local loopback bridge. No global Node.js, AutoHotkey, or UXP Developer Tool installation is required.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does Quiet Trigger connect to the Internet or send telemetry?</summary>
+            <div class="faq-body">
+              <p>No. Quiet Trigger makes zero outbound network requests, includes zero analytics or telemetry, and even its "Check for Updates" tray item displays a local offline version dialog. The bridge binds strictly to <code>127.0.0.1:47821</code> with 256-bit constant-time session token authentication. See our <a href="../privacy/">Privacy Policy</a> for the full code-audited breakdown.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why does Windows SmartScreen show an "Unknown publisher" notice?</summary>
+            <div class="faq-body">
+              <p>Release v2.1.0 is an unsigned open-source build (no commercial Authenticode certificate was used). Before bypassing SmartScreen, verify the installer's SHA-256 checksum against the official <a href="../download/">Download page</a> or GitHub Release <code>checksums.txt</code>.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is Quiet Trigger available on the Adobe Creative Cloud Marketplace?</summary>
+            <div class="faq-body">
+              <p>Not yet. An Adobe Creative Cloud Marketplace listing is being prepared separately under a dedicated Marketplace plugin ID in accordance with Adobe's multi-channel distribution guidelines. Until official Adobe review and approval are completed, download verified builds directly from GitHub Releases.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does Quiet Trigger handle upgrades from ZAU Console 2.0.0?</summary>
+            <div class="faq-body">
+              <p>Quiet Trigger preserves the independent UXP plugin ID (<code>com.zau.photoshop.console</code>) and atomically migrates settings from <code>%LOCALAPPDATA%\ZAU-Console\</code> to <code>%LOCALAPPDATA%\VAYRO\Quiet Trigger\</code> while backing up and restoring your Photoshop <code>PluginData</code> Favorites and Recents.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0;padding-top:0;">
+        <span>© 2026 VAYRO Studio · <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../support/">Support</a> · <a href="https://github.com/vayrodev/vayro-quiet-trigger" rel="noopener">GitHub</a></span>
+        <span>Adobe and Photoshop are trademarks of Adobe Inc. Independent third-party UXP plugin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

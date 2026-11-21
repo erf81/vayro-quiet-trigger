@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Quiet Trigger by VAYRO | VAYRO Studio</title>
+  <meta name="description" content="Code-audited Privacy Policy for Quiet Trigger by VAYRO and the VAYRO Studio website: local storage, 127.0.0.1 loopback bridge, session tokens, zero telemetry, and data deletion." />
+  <link rel="canonical" href="https://vayrodev.github.io/vayro-quiet-trigger/privacy/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VAYRO Studio" />
+  <meta property="og:title" content="Privacy Policy — Quiet Trigger by VAYRO" />
+  <meta property="og:description" content="How Quiet Trigger handles local storage, authenticated loopback IPC, and user privacy." />
+  <meta property="og:url" content="https://vayrodev.github.io/vayro-quiet-trigger/privacy/" />
+  <meta property="og:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Policy — Quiet Trigger by VAYRO" />
+  <meta name="twitter:description" content="Code-audited local-only privacy policy for Quiet Trigger by VAYRO." />
+  <meta name="twitter:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="icon" href="../assets/icons/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#090c15" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="../">
+        <img class="brand-icon" src="../assets/icons/favicon.svg" alt="Quiet Trigger by VAYRO icon" width="34" height="34" />
+        <span class="brand-text">
+          <span class="brand-studio">VAYRO Studio</span>
+          <span class="brand-product">Quiet Trigger</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="primary-nav" data-nav-menu>
+          <li><a href="../">Home</a></li>
+          <li><a href="../features/">Features</a></li>
+          <li><a href="../download/">Download</a></li>
+          <li><a href="../installation/">Installation</a></li>
+          <li><a href="../documentation/">Documentation</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+          <li><a href="../support/">Support</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="lang-switch" href="../fa/" hreflang="fa" lang="fa">فارسی</a>
+        <a class="btn btn-primary btn-sm" href="../download/">Download v2.1.0</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Privacy Policy</span></nav>
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> November 22, 2026 · <strong>Applies to:</strong> Quiet Trigger v2.1.0 (Photoshop UXP plugin &amp; Windows companion) and this VAYRO Studio website.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+        <div class="card" style="margin-bottom:20px;">
+          <h2>1. Summary — Local-First Operation</h2>
+          <p>Based on a direct audit of the Quiet Trigger v2.1.0 source code (<code>photoshop-plugin/</code>, <code>companion/</code>, and <code>installer/</code>), <strong>Quiet Trigger does not collect, transmit, sell, or share personal data, telemetry, analytics, search queries, or Photoshop artwork with VAYRO Studio or any third-party server.</strong></p>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <h2>2. Local Storage on Your Device</h2>
+          <p>Quiet Trigger stores configuration and preference files strictly on your local computer under your standard Windows user profile:</p>
+          <ul>
+            <li><strong>Photoshop UXP PluginData:</strong> <code>%APPDATA%\Adobe\UXP\PluginsStorage\PHSP\&lt;version&gt;\External\com.zau.photoshop.console\PluginData\zau-console-state.json</code> — stores Favorites, Recent Commands, active theme settings, saved custom themes, and local bridge pairing parameters.</li>
+            <li><strong>Windows Companion User Data:</strong> <code>%LOCALAPPDATA%\VAYRO\Quiet Trigger\</code> — stores <code>bridge-session.json</code> (local port and 256-bit session token), <code>theme.json</code> (theme styling only; session credentials are stripped by <code>sanitizeTheme()</code>), and <code>helper-settings.json</code> (selected hotkey and paused state).</li>
+            <li><strong>Upgrade Backup (if upgrading from ZAU Console 2.0.0):</strong> Legacy files in <code>%LOCALAPPDATA%\ZAU-Console\</code> are backed up locally during migration so user preferences are not lost.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <h2>3. Local Loopback Bridge &amp; Session Token Handling</h2>
+          <ul>
+            <li>The local companion bridge (<code>companion/bridge/bridge-server.js</code>) is hardcoded to bind solely to the loopback address <code>127.0.0.1</code> (default port <code>47821</code>) and never accepts external network connections.</li>
+            <li>On first launch, it generates a random 256-bit (64-hex) per-user session token stored only in your private user profile and paired locally with your Photoshop UXP <code>PluginData</code>.</li>
+            <li>All local HTTP and WebSocket messages between the Windows palette and Photoshop UXP require this token and are verified using constant-time comparison (<code>crypto.timingSafeEqual</code>). Tokens are never logged in background mode or included in theme payloads.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <h2>4. Network Requests &amp; Third-Party Services</h2>
+          <ul>
+            <li><strong>Quiet Trigger Plugin &amp; Companion:</strong> Zero outbound Internet requests. UXP <code>manifest.json</code> restricts permitted domains exclusively to <code>ws://localhost:47821</code>, <code>http://localhost:47821</code>, <code>ws://127.0.0.1:47821</code>, and <code>http://127.0.0.1:47821</code>. Even the tray menu's "Check for Updates" action opens a local offline version dialog and never phones home.</li>
+            <li><strong>Adobe Photoshop Native AI Commands:</strong> Two commands in the registry (<code>Select Subject</code> and <code>Remove Background</code>) trigger Adobe Photoshop's own built-in Adobe Sensei commands via <code>batchPlay</code>. Any cloud processing performed by Adobe Photoshop when you invoke those features is governed by Adobe's own privacy policy and your Adobe account settings, not by Quiet Trigger.</li>
+            <li><strong>This Website (GitHub Pages):</strong> This static website loads <strong>zero analytics, zero cookies, zero advertising pixels, and zero third-party tracking scripts</strong>. The site is hosted on <strong>GitHub Pages</strong>, and downloads are served from <strong>GitHub Releases</strong>; GitHub may collect standard server access logs (such as IP address and user agent) under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub General Privacy Statement</a>.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <h2>5. Diagnostics &amp; Voluntary Support Reports</h2>
+          <p>Quiet Trigger includes no automatic crash reporter or background diagnostics upload. If you voluntarily open an issue on GitHub, please do not post real session tokens, passwords, or confidential Photoshop artwork.</p>
+        </div>
+
+        <div class="card" style="margin-bottom:20px;">
+          <h2>6. User Data Deletion</h2>
+          <p>Because all application data stays on your local device, you have full control over deleting it at any time:</p>
+          <ol style="color:var(--text-secondary);padding-inline-start:20px;">
+            <li>Uninstall Quiet Trigger via <strong>Windows Settings → Apps → Installed Apps</strong> and choose not to keep user settings when prompted, <em>or</em></li>
+            <li>Manually delete <code>%LOCALAPPDATA%\VAYRO\Quiet Trigger\</code> and the Photoshop UXP <code>PluginData</code> folder for <code>com.zau.photoshop.console</code>.</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>7. Contact</h2>
+          <p>For privacy questions or security concerns, visit our <a href="../support/">Support &amp; Security page</a> or report privately through GitHub Security Advisories on <a href="https://github.com/vayrodev/vayro-quiet-trigger/security" rel="noopener">vayrodev/vayro-quiet-trigger</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0;padding-top:0;">
+        <span>© 2026 VAYRO Studio · <a href="./">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../support/">Support</a> · <a href="https://github.com/vayrodev/vayro-quiet-trigger" rel="noopener">GitHub</a></span>
+        <span>Adobe and Photoshop are trademarks of Adobe Inc. Independent third-party UXP plugin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation &amp; 98-Command Matrix — Quiet Trigger by VAYRO</title>
+  <meta name="description" content="Technical documentation for Quiet Trigger by VAYRO: plugin and loopback bridge architecture, security model, complete 98-command Photoshop verification matrix, and workflow content roadmap." />
+  <link rel="canonical" href="https://vayrodev.github.io/vayro-quiet-trigger/documentation/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VAYRO Studio" />
+  <meta property="og:title" content="Documentation — Quiet Trigger by VAYRO" />
+  <meta property="og:description" content="System architecture, authenticated 127.0.0.1 loopback bridge security, complete 98-command verification matrix, and workflow guides roadmap." />
+  <meta property="og:url" content="https://vayrodev.github.io/vayro-quiet-trigger/documentation/" />
+  <meta property="og:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Documentation — Quiet Trigger by VAYRO" />
+  <meta name="twitter:description" content="Architecture, security overview, and complete 98-command verification matrix for Adobe Photoshop 2025." />
+  <meta name="twitter:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="icon" href="../assets/icons/favicon.ico" sizes="any" />
+  <meta name="theme-color" content="#090c15" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vayrodev.github.io/vayro-quiet-trigger/" },
+      { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://vayrodev.github.io/vayro-quiet-trigger/documentation/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="../">
+        <img class="brand-icon" src="../assets/icons/favicon.svg" alt="Quiet Trigger by VAYRO icon" width="34" height="34" />
+        <span class="brand-text">
+          <span class="brand-studio">VAYRO Studio</span>
+          <span class="brand-product">Quiet Trigger</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="primary-nav" data-nav-menu>
+          <li><a href="../">Home</a></li>
+          <li><a href="../features/">Features</a></li>
+          <li><a href="../download/">Download</a></li>
+          <li><a href="../installation/">Installation</a></li>
+          <li><a href="./" aria-current="page">Documentation</a></li>
+          <li><a href="../faq/">FAQ</a></li>
+          <li><a href="../support/">Support</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="lang-switch" href="../fa/" hreflang="fa" lang="fa">فارسی</a>
+        <a class="btn btn-primary btn-sm" href="../download/">Download v2.1.0</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Documentation</span></nav>
+        <h1>Technical Documentation</h1>
+        <p>Architecture, local security design, complete 98-command verification status in Adobe Photoshop 2025 v26.8.1, and our upcoming workflow guides roadmap.</p>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-info">Architecture</span>
+          <h2>How Quiet Trigger Connects Photoshop &amp; Windows</h2>
+          <p>Clean separation between the Adobe Photoshop UXP plugin, local loopback bridge, silent Windows tray host, and floating WPF command palette.</p>
+        </div>
+        <pre><code>Windows User Sign-In (HKCU\...\Run)
+        │
+        ▼
+QuietTriggerHelper.exe (Silent Native WinExe)
+  ├── Windows System Tray (8-item menu + Settings dialog)
+  ├── Win32 RegisterHotKey (Ctrl + Alt + Space · Photoshop foreground guard)
+  ├── Launches quiet-trigger-palette.ps1 (Frosted WPF Floating Palette)
+  └── Supervises bundled portable runtime\node.exe running:
+        │
+        ▼
+bridge-server.js (Strictly bound to 127.0.0.1:47821 · Loopback Only)
+  ├── 256-bit constant-time token auth (X-ZAU-Token / ?token=...)
+  ├── HTTP endpoints: /health, /catalog, /context, /execute, /theme, /favorite
+  └── RFC 6455 WebSocket (fragmented frame reassembly, TCP_NODELAY)
+        ▲
+        │  ws://localhost:47821?token=&lt;256-bit&gt;
+        ▼
+photoshop-plugin/ (Adobe Photoshop UXP Manifest v5 · API v2)
+  ├── manifest.json (Preserved independent ID: com.zau.photoshop.console)
+  ├── 98 commands across 8 categories + English/Persian fuzzy search
+  ├── VAYRO Theme Studio (6 presets + 8-token HEX editor + live sync)
+  └── PluginData local JSON persistence (zau-console-state.json)</code></pre>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="security">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-pass">Security Architecture</span>
+          <h2>Zero-Telemetry, Loopback-Only Design</h2>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Network Isolation &amp; Constant-Time Auth</h3>
+            <ul>
+              <li><code>bridge-server.js</code> binds strictly to <code>127.0.0.1:47821</code> — never <code>0.0.0.0</code> or external network interfaces.</li>
+              <li>Generates a cryptographically random 256-bit (64-hex) per-user session token stored in <code>%LOCALAPPDATA%\VAYRO\Quiet Trigger\bridge-session.json</code>.</li>
+              <li>Every HTTP header (<code>X-ZAU-Token</code>) and WebSocket upgrade query is validated using <code>crypto.timingSafeEqual</code>; unauthorized requests receive HTTP <code>401</code>.</li>
+              <li>UXP <code>manifest.json</code> restricts network domains solely to <code>localhost:47821</code> and <code>127.0.0.1:47821</code>.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Credential Safety &amp; Command Isolation</h3>
+            <ul>
+              <li>No session token is ever embedded in the repository, installer, or printed to stdout in <code>--silent</code> mode.</li>
+              <li><code>sanitizeTheme()</code> strips unknown fields so <code>bridgeToken</code> can never enter <code>theme.json</code> or exported theme data.</li>
+              <li><code>POST /theme</code> updates styling only and never invokes Photoshop command execution.</li>
+              <li>Repository history is continuously scanned with Gitleaks via GitHub Actions CI.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="command-matrix">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">98 Registered Commands · 92 Live-Verified PASS · 6 Documented Limitations</span>
+          <h2>Complete 98-Command Verification Matrix</h2>
+          <p>
+            Verified on <strong>Adobe Photoshop 2025 v26.8.1</strong> (Windows 10 Enterprise x64). We document all 6 interactive GPU workspace and Adobe Sensei limitations transparently rather than claiming universal automation.
+          </p>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filter command categories">
+          <button class="filter-pill active" type="button" data-cat-filter="all">All (98)</button>
+          <button class="filter-pill" type="button" data-cat-filter="tools">Tools (19)</button>
+          <button class="filter-pill" type="button" data-cat-filter="filters">Filters (17)</button>
+          <button class="filter-pill" type="button" data-cat-filter="adjustments">Adjustments (15)</button>
+          <button class="filter-pill" type="button" data-cat-filter="layers">Layers (14)</button>
+          <button class="filter-pill" type="button" data-cat-filter="selections">Selections (10)</button>
+          <button class="filter-pill" type="button" data-cat-filter="document">Document (11)</button>
+          <button class="filter-pill" type="button" data-cat-filter="view">View (7)</button>
+          <button class="filter-pill" type="button" data-cat-filter="export">Export (5)</button>
+        </div>
+
+        <div class="callout callout-warn">
+          <div class="callout-title">Honest Summary of the 6 Documented Limitations</div>
+          <ul style="margin:6px 0 0;padding-inline-start:20px;color:var(--text-secondary);">
+            <li><strong>4 Full-Screen GPU Workspaces (Manual Interactive):</strong> <code>Lens Blur</code>, <code>Blur Gallery — Field Blur</code>, <code>Liquify</code>, and <code>Camera Raw Filter</code> open full-screen Photoshop GPU workspaces that require interactive user confirmation (OK/Cancel) inside Photoshop's modal UI.</li>
+            <li><strong>2 Adobe Sensei AI Commands (Cloud / Subject-Dependent):</strong> <code>Select Subject</code> and <code>Remove Background</code> invoke Photoshop's native Adobe Sensei models, which depend on active Adobe authentication and a recognizable photographic subject.</li>
+          </ul>
+        </div>
+
+        <div data-cat-group="tools" style="margin-top:24px;">
+          <h3>A. Tools — 19 / 19 Live-Verified PASS</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>tool.move</code></td><td>Move Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>moveTool</code></td></tr>
+                <tr><td><code>tool.brush</code></td><td>Brush Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>paintbrushTool</code></td></tr>
+                <tr><td><code>tool.cloneStamp</code></td><td>Clone Stamp Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>cloneStampTool</code></td></tr>
+                <tr><td><code>tool.healingBrush</code></td><td>Healing Brush Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>magicStampTool</code></td></tr>
+                <tr><td><code>tool.spotHealingBrush</code></td><td>Spot Healing Brush Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>spotHealingBrushTool</code></td></tr>
+                <tr><td><code>tool.eraser</code></td><td>Eraser Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>eraserTool</code></td></tr>
+                <tr><td><code>tool.gradient</code></td><td>Gradient Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>gradientTool</code></td></tr>
+                <tr><td><code>tool.paintBucket</code></td><td>Paint Bucket Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>bucketTool</code></td></tr>
+                <tr><td><code>tool.pen</code></td><td>Pen Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>penTool</code></td></tr>
+                <tr><td><code>tool.type</code></td><td>Horizontal Type Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>typeCreateOrEditTool</code></td></tr>
+                <tr><td><code>tool.crop</code></td><td>Crop Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>cropTool</code></td></tr>
+                <tr><td><code>tool.hand</code></td><td>Hand Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>handTool</code></td></tr>
+                <tr><td><code>tool.zoom</code></td><td>Zoom Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>zoomTool</code></td></tr>
+                <tr><td><code>tool.marqueeRect</code></td><td>Rectangular Marquee Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>marqueeRectTool</code></td></tr>
+                <tr><td><code>tool.marqueeEllip</code></td><td>Elliptical Marquee Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>marqueeEllipTool</code></td></tr>
+                <tr><td><code>tool.lasso</code></td><td>Lasso Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>lassoTool</code></td></tr>
+                <tr><td><code>tool.polygonalLasso</code></td><td>Polygonal Lasso Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>polySelTool</code></td></tr>
+                <tr><td><code>tool.quickSelection</code></td><td>Quick Selection Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>quickSelectTool</code></td></tr>
+                <tr><td><code>tool.objectSelection</code></td><td>Object Selection Tool</td><td><span class="badge badge-pass">PASS</span></td><td>Active tool <code>magicLassoTool</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-cat-group="filters" style="margin-top:24px;">
+          <h3>B. Filters &amp; Effects — 13 / 17 Live-Verified PASS · 4 Interactive GPU Workspaces</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>filter.gaussianBlur</code></td><td>Gaussian Blur</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Gaussian Blur dialog</td></tr>
+                <tr><td><code>filter.motionBlur</code></td><td>Motion Blur</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Motion Blur dialog</td></tr>
+                <tr><td><code>filter.surfaceBlur</code></td><td>Surface Blur</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Surface Blur dialog</td></tr>
+                <tr><td><code>filter.smartSharpen</code></td><td>Smart Sharpen</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Smart Sharpen dialog</td></tr>
+                <tr><td><code>filter.unsharpMask</code></td><td>Unsharp Mask</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Unsharp Mask dialog</td></tr>
+                <tr><td><code>filter.highPass</code></td><td>High Pass</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native High Pass dialog</td></tr>
+                <tr><td><code>filter.addNoise</code></td><td>Add Noise</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Add Noise dialog</td></tr>
+                <tr><td><code>filter.reduceNoise</code></td><td>Reduce Noise</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Resolved via <code>performMenuByTitle</code></td></tr>
+                <tr><td><code>filter.median</code></td><td>Median</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Median dialog</td></tr>
+                <tr><td><code>filter.distortRipple</code></td><td>Distort — Ripple</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Ripple dialog</td></tr>
+                <tr><td><code>filter.distortTwirl</code></td><td>Distort — Twirl</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Twirl dialog</td></tr>
+                <tr><td><code>filter.stylizeEmboss</code></td><td>Stylize — Emboss</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Native Emboss dialog</td></tr>
+                <tr><td><code>filter.stylizeFindEdges</code></td><td>Stylize — Find Edges</td><td><span class="badge badge-pass">PASS</span></td><td>Direct non-dialog filter</td></tr>
+                <tr><td><code>filter.lensBlur</code></td><td>Lens Blur</td><td><span class="badge badge-warn">MANUAL GPU</span></td><td>Full-screen GPU workspace; requires interactive OK/Cancel</td></tr>
+                <tr><td><code>filter.blurGalleryField</code></td><td>Blur Gallery — Field Blur</td><td><span class="badge badge-warn">MANUAL GPU</span></td><td>Full-screen Blur Gallery workspace (menu ID 2225)</td></tr>
+                <tr><td><code>filter.liquify</code></td><td>Liquify</td><td><span class="badge badge-warn">MANUAL GPU</span></td><td>Full-screen GPU Liquify workspace</td></tr>
+                <tr><td><code>filter.cameraRaw</code></td><td>Camera Raw Filter</td><td><span class="badge badge-warn">MANUAL GPU</span></td><td>Full-screen Adobe Camera Raw workspace</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-cat-group="adjustments" style="margin-top:24px;">
+          <h3>C. Adjustments — 15 / 15 Live-Verified PASS (Non-Destructive Layers)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>adjust.brightnessContrast</code></td><td>Brightness / Contrast</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.levels</code></td><td>Levels</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.curves</code></td><td>Curves</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.exposure</code></td><td>Exposure</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.hueSaturation</code></td><td>Hue / Saturation</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.colorBalance</code></td><td>Color Balance</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.blackAndWhite</code></td><td>Black &amp; White</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.vibrance</code></td><td>Vibrance</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.photoFilter</code></td><td>Photo Filter</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.channelMixer</code></td><td>Channel Mixer</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.selectiveColor</code></td><td>Selective Color</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.gradientMap</code></td><td>Gradient Map</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.invert</code></td><td>Invert</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.threshold</code></td><td>Threshold</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+                <tr><td><code>adjust.posterize</code></td><td>Posterize</td><td><span class="badge badge-pass">PASS</span></td><td>Creates non-destructive adjustment layer</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-cat-group="layers" style="margin-top:24px;">
+          <h3>D. Layer Operations — 14 / 14 Live-Verified PASS</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>layer.new</code></td><td>New Layer</td><td><span class="badge badge-pass">PASS</span></td><td>Creates empty pixel layer</td></tr>
+                <tr><td><code>layer.duplicate</code></td><td>Duplicate Layer</td><td><span class="badge badge-pass">PASS</span></td><td>Duplicates active layer</td></tr>
+                <tr><td><code>layer.delete</code></td><td>Delete Layer</td><td><span class="badge badge-pass">PASS</span></td><td>Confirm-guarded destructive action</td></tr>
+                <tr><td><code>layer.rename</code></td><td>Rename Layer</td><td><span class="badge badge-pass">PASS</span></td><td>Inline palette rename input</td></tr>
+                <tr><td><code>layer.mergeLayers</code></td><td>Merge Layers</td><td><span class="badge badge-pass">PASS</span></td><td>Confirm-guarded destructive action</td></tr>
+                <tr><td><code>layer.mergeVisible</code></td><td>Merge Visible</td><td><span class="badge badge-pass">PASS</span></td><td>Confirm-guarded destructive action</td></tr>
+                <tr><td><code>layer.group</code></td><td>Group Layers</td><td><span class="badge badge-pass">PASS</span></td><td>Creates LayerSet group</td></tr>
+                <tr><td><code>layer.ungroup</code></td><td>Ungroup Layers</td><td><span class="badge badge-pass">PASS</span></td><td>Ungroups active LayerSet</td></tr>
+                <tr><td><code>layer.toggleLock</code></td><td>Lock / Unlock Layer</td><td><span class="badge badge-pass">PASS</span></td><td>Toggles <code>layer.allLocked</code></td></tr>
+                <tr><td><code>layer.convertToSmartObject</code></td><td>Convert to Smart Object</td><td><span class="badge badge-pass">PASS</span></td><td>Converts to Smart Object</td></tr>
+                <tr><td><code>layer.rasterize</code></td><td>Rasterize Layer</td><td><span class="badge badge-pass">PASS</span></td><td>Confirm-guarded destructive action</td></tr>
+                <tr><td><code>layer.createClippingMask</code></td><td>Create / Release Clipping Mask</td><td><span class="badge badge-pass">PASS</span></td><td>Toggles clipping mask</td></tr>
+                <tr><td><code>layer.createMask</code></td><td>Create Layer Mask</td><td><span class="badge badge-pass">PASS</span></td><td>Creates reveal-all layer mask</td></tr>
+                <tr><td><code>layer.applyMask</code></td><td>Apply Layer Mask</td><td><span class="badge badge-pass">PASS</span></td><td>Confirm-guarded destructive action</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-cat-group="selections" style="margin-top:24px;">
+          <h3>E. Selection Operations — 8 / 10 Live-Verified PASS · 2 Adobe Sensei AI</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>selection.selectAll</code></td><td>Select All</td><td><span class="badge badge-pass">PASS</span></td><td>Full canvas selection</td></tr>
+                <tr><td><code>selection.deselect</code></td><td>Deselect</td><td><span class="badge badge-pass">PASS</span></td><td>Clears active selection</td></tr>
+                <tr><td><code>selection.reselect</code></td><td>Reselect</td><td><span class="badge badge-pass">PASS</span></td><td>Restores previous selection</td></tr>
+                <tr><td><code>selection.inverse</code></td><td>Inverse Selection</td><td><span class="badge badge-pass">PASS</span></td><td>Inverts active selection</td></tr>
+                <tr><td><code>selection.feather</code></td><td>Feather Selection</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 1036</td></tr>
+                <tr><td><code>selection.expand</code></td><td>Expand Selection</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 1109</td></tr>
+                <tr><td><code>selection.contract</code></td><td>Contract Selection</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 1110</td></tr>
+                <tr><td><code>selection.smooth</code></td><td>Modify Selection — Smooth</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 1108</td></tr>
+                <tr><td><code>selection.selectSubject</code></td><td>Select Subject</td><td><span class="badge badge-warn">AI / SENSEI</span></td><td>Requires recognizable subject &amp; Adobe Sensei ML models</td></tr>
+                <tr><td><code>selection.removeBackground</code></td><td>Remove Background</td><td><span class="badge badge-warn">AI / SENSEI</span></td><td>Requires recognizable subject &amp; Adobe Sensei ML models</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-cat-group="document" style="margin-top:24px;">
+          <h3>F. Document &amp; Canvas — 11 / 11 Live-Verified PASS</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>doc.new</code></td><td>New Document</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 10</td></tr>
+                <tr><td><code>doc.imageSize</code></td><td>Image Size</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 1030</td></tr>
+                <tr><td><code>doc.canvasSize</code></td><td>Canvas Size</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 1031</td></tr>
+                <tr><td><code>doc.cropToSelection</code></td><td>Crop Canvas to Selection</td><td><span class="badge badge-pass">PASS</span></td><td>Confirm-guarded destructive action</td></tr>
+                <tr><td><code>doc.rotate90CW</code></td><td>Rotate Canvas 90° Clockwise</td><td><span class="badge badge-pass">PASS</span></td><td><code>activeDocument.rotate(90)</code></td></tr>
+                <tr><td><code>doc.rotate90CCW</code></td><td>Rotate Canvas 90° Counter-Clockwise</td><td><span class="badge badge-pass">PASS</span></td><td><code>activeDocument.rotate(-90)</code></td></tr>
+                <tr><td><code>doc.flipHorizontal</code></td><td>Flip Canvas Horizontal</td><td><span class="badge badge-pass">PASS</span></td><td><code>batchPlay</code> horizontal flip</td></tr>
+                <tr><td><code>doc.flipVertical</code></td><td>Flip Canvas Vertical</td><td><span class="badge badge-pass">PASS</span></td><td><code>batchPlay</code> vertical flip</td></tr>
+                <tr><td><code>doc.newGuideLayout</code></td><td>New Guide Layout</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 5614</td></tr>
+                <tr><td><code>doc.toggleGrid</code></td><td>Show / Hide Grid</td><td><span class="badge badge-pass">PASS</span></td><td>Toggles document grid</td></tr>
+                <tr><td><code>doc.info</code></td><td>Document Information</td><td><span class="badge badge-pass">PASS</span></td><td>Reports size, DPI, color mode, active layer</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-cat-group="view" style="margin-top:24px;">
+          <h3>G. View — 7 / 7 Live-Verified PASS</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>view.fitOnScreen</code></td><td>Fit on Screen</td><td><span class="badge badge-pass">PASS</span></td><td>Fits canvas to viewport</td></tr>
+                <tr><td><code>view.actualPixels</code></td><td>100% Zoom (Actual Pixels)</td><td><span class="badge badge-pass">PASS</span></td><td>Sets zoom to 100%</td></tr>
+                <tr><td><code>view.zoomIn</code></td><td>Zoom In</td><td><span class="badge badge-pass">PASS</span></td><td>Increments zoom level</td></tr>
+                <tr><td><code>view.zoomOut</code></td><td>Zoom Out</td><td><span class="badge badge-pass">PASS</span></td><td>Decrements zoom level</td></tr>
+                <tr><td><code>view.toggleGuides</code></td><td>Show / Hide Guides</td><td><span class="badge badge-pass">PASS</span></td><td>PS 2025 Canvas Guides (cmd 3536)</td></tr>
+                <tr><td><code>view.toggleRulers</code></td><td>Show / Hide Rulers</td><td><span class="badge badge-pass">PASS</span></td><td>Toggles workspace rulers</td></tr>
+                <tr><td><code>view.toggleExtras</code></td><td>Show / Hide Extras</td><td><span class="badge badge-pass">PASS</span></td><td>Toggles workspace extras</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div data-cat-group="export" style="margin-top:24px;">
+          <h3>H. Export — 5 / 5 Live-Verified PASS</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Command ID</th><th>Display Name</th><th>Status</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td><code>export.quickPng</code></td><td>Quick Export as PNG</td><td><span class="badge badge-pass">PASS</span></td><td>Menu command 3444</td></tr>
+                <tr><td><code>export.quickJpeg</code></td><td>Export as JPEG (Export As)</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 3443</td></tr>
+                <tr><td><code>export.saveACopy</code></td><td>Save a Copy</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 33</td></tr>
+                <tr><td><code>export.exportAs</code></td><td>Export As...</td><td><span class="badge badge-pass">PASS (Dialog)</span></td><td>Menu command 3443</td></tr>
+                <tr><td><code>export.selectedLayers</code></td><td>Export Selected Layers...</td><td><span class="badge badge-pass">PASS</span></td><td>Menu command 3447</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="roadmap">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-info">Editorial Roadmap</span>
+          <h2>Planned Photoshop Workflow Guides</h2>
+          <p>Upcoming practical, engineering-backed guides planned for VAYRO Studio documentation:</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><h3>How to Speed Up Photoshop Workflows</h3><p>Measuring menu travel vs. keyboard-first command execution for repetitive retouching and layout tasks.</p></div>
+          <div class="card"><h3>Finding Photoshop Tools Faster</h3><p>Using fuzzy aliases, Favorites, and category scoping to eliminate nested submenu navigation.</p></div>
+          <div class="card"><h3>Photoshop UXP Plugins Explained</h3><p>How Adobe UXP Manifest v5, Photoshop API v2, and <code>batchPlay</code> replace legacy CEP panels.</p></div>
+          <div class="card"><h3>Photoshop Command Palette Workflow</h3><p>Pairing a floating palette with non-destructive adjustment layers and safe destructive confirmations.</p></div>
+          <div class="card"><h3>Customizing Photoshop Productivity Tools</h3><p>Designing high-contrast, glare-free dark palettes with VAYRO Theme Studio for color-critical monitors.</p></div>
+          <div class="card"><h3>Keyboard-Driven Photoshop Workflows</h3><p>Avoiding native Photoshop shortcut conflicts (such as Zoom In on Ctrl+Space) while staying on the home row.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:0;padding-top:0;">
+        <span>© 2026 VAYRO Studio · <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../support/">Support</a> · <a href="https://github.com/vayrodev/vayro-quiet-trigger" rel="noopener">GitHub</a></span>
+        <span>Adobe and Photoshop are trademarks of Adobe Inc. Independent third-party UXP plugin.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

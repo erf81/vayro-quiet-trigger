@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiet Trigger by VAYRO — Adobe Photoshop Command Palette &amp; UXP Plugin</title>
+  <meta name="description" content="Quiet Trigger by VAYRO is a keyboard-driven Adobe Photoshop UXP command palette with English &amp; Persian fuzzy search, 98 built-in commands, VAYRO Theme Studio, and a floating Windows companion." />
+  <link rel="canonical" href="https://vayrodev.github.io/vayro-quiet-trigger/" />
+  <link rel="alternate" hreflang="en" href="https://vayrodev.github.io/vayro-quiet-trigger/" />
+  <link rel="alternate" hreflang="fa" href="https://vayrodev.github.io/vayro-quiet-trigger/fa/" />
+  <link rel="alternate" hreflang="x-default" href="https://vayrodev.github.io/vayro-quiet-trigger/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VAYRO Studio" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Quiet Trigger by VAYRO — Your Photoshop Workflow, Accelerated." />
+  <meta property="og:description" content="A keyboard-driven command palette for Adobe Photoshop. Search 98 built-in commands in English or Persian, customize with VAYRO Theme Studio, and launch anywhere in Photoshop with Ctrl + Alt + Space." />
+  <meta property="og:url" content="https://vayrodev.github.io/vayro-quiet-trigger/" />
+  <meta property="og:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="640" />
+  <meta property="og:image:alt" content="Quiet Trigger by VAYRO floating Adobe Photoshop command palette interface" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quiet Trigger by VAYRO — Adobe Photoshop Command Palette" />
+  <meta name="twitter:description" content="Less searching. More creating. Keyboard-driven Adobe Photoshop UXP command palette with 98 commands, bilingual fuzzy search, and floating Windows companion." />
+  <meta name="twitter:image" content="https://vayrodev.github.io/vayro-quiet-trigger/assets/images/og-social-preview.png" />
+
+  <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+  <meta name="theme-color" content="#090c15" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vayrodev.github.io/vayro-quiet-trigger/#organization",
+        "name": "VAYRO Studio",
+        "alternateName": "VAYRO",
+        "url": "https://vayrodev.github.io/vayro-quiet-trigger/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vayrodev.github.io/vayro-quiet-trigger/assets/icons/quiet-trigger-256.png",
+          "width": 256,
+          "height": 256
+        },
+        "sameAs": [
+          "https://github.com/vayrodev",
+          "https://github.com/vayrodev/vayro-quiet-trigger"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vayrodev.github.io/vayro-quiet-trigger/#website",
+        "name": "VAYRO Studio — Quiet Trigger",
+        "url": "https://vayrodev.github.io/vayro-quiet-trigger/",
+        "publisher": {
+          "@id": "https://vayrodev.github.io/vayro-quiet-trigger/#organization"
+        },
+        "inLanguage": ["en", "fa"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://vayrodev.github.io/vayro-quiet-trigger/#software",
+        "name": "Quiet Trigger",
+        "alternateName": "Quiet Trigger by VAYRO",
+        "description": "A keyboard-driven Adobe Photoshop UXP command palette with English and Persian fuzzy search, 98 built-in commands across 8 categories, VAYRO Theme Studio, and an optional floating Windows companion.",
+        "applicationCategory": "DesignApplication",
+        "applicationSubCategory": "Adobe Photoshop UXP Plugin",
+        "operatingSystem": "Windows 10, Windows 11 (x64); Adobe Photoshop UXP host (minVersion 24.0.0)",
+        "softwareVersion": "2.1.0",
+        "releaseNotes": "https://github.com/vayrodev/vayro-quiet-trigger/releases/tag/v2.1.0",
+        "downloadUrl": "https://github.com/vayrodev/vayro-quiet-trigger/releases/download/v2.1.0/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe",
+        "installUrl": "https://vayrodev.github.io/vayro-quiet-trigger/installation/",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "isAccessibleForFree": true,
+        "url": "https://vayrodev.github.io/vayro-quiet-trigger/",
+        "screenshot": [
+          "https://vayrodev.github.io/vayro-quiet-trigger/assets/images/quiet-trigger-aurora.png",
+          "https://vayrodev.github.io/vayro-quiet-trigger/assets/images/quiet-trigger-theme-studio.png",
+          "https://vayrodev.github.io/vayro-quiet-trigger/assets/images/quiet-trigger-ember.png"
+        ],
+        "publisher": {
+          "@id": "https://vayrodev.github.io/vayro-quiet-trigger/#organization"
+        },
+        "author": {
+          "@id": "https://vayrodev.github.io/vayro-quiet-trigger/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-link" href="./">
+        <img class="brand-icon" src="./assets/icons/favicon.svg" alt="Quiet Trigger by VAYRO icon" width="34" height="34" />
+        <span class="brand-text">
+          <span class="brand-studio">VAYRO Studio</span>
+          <span class="brand-product">Quiet Trigger</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" id="primary-nav" data-nav-menu>
+          <li><a href="./" aria-current="page">Home</a></li>
+          <li><a href="./features/">Features</a></li>
+          <li><a href="./download/">Download</a></li>
+          <li><a href="./installation/">Installation</a></li>
+          <li><a href="./documentation/">Documentation</a></li>
+          <li><a href="./faq/">FAQ</a></li>
+          <li><a href="./support/">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="lang-switch" href="./fa/" hreflang="fa" lang="fa" title="صفحه فارسی Quiet Trigger">فارسی</a>
+        <a class="btn btn-primary btn-sm" href="./download/">Download v2.1.0</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">VAYRO Studio · Release v2.1.0 · Open Source (Apache-2.0)</span>
+          <h1>Your Photoshop Workflow, <span class="gradient-text">Accelerated.</span></h1>
+          <p class="hero-lead">
+            A keyboard-driven command palette for Adobe Photoshop. Find tools, effects, adjustments, and commands without interrupting your creative workflow.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://github.com/vayrodev/vayro-quiet-trigger/releases/download/v2.1.0/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe">Download for Windows</a>
+            <a class="btn btn-secondary" href="https://github.com/vayrodev/vayro-quiet-trigger" rel="noopener">Explore on GitHub</a>
+            <a class="btn btn-ghost" href="./download/">See CCX &amp; Checksums</a>
+          </div>
+          <div class="hero-meta">
+            <span><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd> in Photoshop</span>
+            <span>98 built-in commands (92 live-verified)</span>
+            <span>100% local · Zero telemetry</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="screenshot-frame">
+            <picture>
+              <source srcset="./assets/images/quiet-trigger-aurora.webp" type="image/webp" />
+              <img src="./assets/images/quiet-trigger-aurora.png" alt="Quiet Trigger by VAYRO floating command palette showing Gaussian Blur, Curves, Select Subject, Crop Tool, and active Photoshop document status in Aurora theme" width="828" height="728" />
+            </picture>
+          </div>
+          <p class="screenshot-caption">Real capture of Quiet Trigger v2.1.0 floating palette (Aurora preset) connected to Adobe Photoshop 2025 v26.8.1.</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="fact-strip" aria-label="Verified technical specifications">
+          <div class="fact-card">
+            <div class="fact-value">98 Commands</div>
+            <div class="fact-label">8 Photoshop categories · 92 live-verified PASS, 6 documented GPU/Sensei limits</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-value">EN + FA Search</div>
+            <div class="fact-label">Instant fuzzy, alias, keyword &amp; Persian command search inside Photoshop</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-value">6 Themes + HEX</div>
+            <div class="fact-label">VAYRO Theme Studio with live UXP ↔ Windows floating palette sync</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-value">127.0.0.1 Only</div>
+            <div class="fact-label">Authenticated 256-bit loopback bridge · Zero external network calls</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About VAYRO Studio & Product Overview -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-info">Less searching. More creating.</span>
+          <h2>Built by VAYRO Studio for keyboard-first Adobe Photoshop users</h2>
+          <p>
+            VAYRO Studio develops focused creative productivity software designed to reduce menu hunting and preserve creative focus.
+            <strong>Quiet Trigger</strong> is our flagship Adobe Photoshop UXP command palette — combining a docked Photoshop UXP panel with an optional frosted Windows floating palette.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Instant Fuzzy &amp; Bilingual Search</h3>
+            <p>Type partial fragments like <code>gblr</code>, aliases like <code>usm</code> or <code>crv</code>, or Persian queries like <span lang="fa" dir="rtl">بلور</span>, <span lang="fa" dir="rtl">ماسک</span>, and <span lang="fa" dir="rtl">کراپ</span>. Pin Favorites and recall Recent Commands immediately.</p>
+          </article>
+          <article class="card">
+            <h3>Floating Windows Companion</h3>
+            <p>Summon the frosted floating palette directly over Adobe Photoshop with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd>. The silent system tray helper activates only when Photoshop is focused and runs without any terminal window.</p>
+          </article>
+          <article class="card">
+            <h3>Document &amp; Layer Context</h3>
+            <p>See live document dimensions, active layer name, and safety pre-flight guards before running commands. Destructive actions like Delete Layer, Merge, Rasterize, and Crop prompt confirmation.</p>
+          </article>
+          <article class="card">
+            <h3>VAYRO Theme Studio</h3>
+            <p>Switch between 6 built-in themes or craft custom gradients, glow intensity, surface translucency, opacity, corner radius, and UI density with real-time synchronization across UXP and Windows WPF.</p>
+          </article>
+          <article class="card">
+            <h3>Authenticated Local Bridge</h3>
+            <p>Communication between Photoshop and the Windows companion runs strictly over <code>127.0.0.1:47821</code> with a per-user 256-bit random session token verified using constant-time comparison.</p>
+          </article>
+          <article class="card">
+            <h3>Two Clean Install Paths</h3>
+            <p>Use the single-file per-user Windows Installer for the complete floating palette + UXP plugin experience, or install the standalone Photoshop-only <code>.ccx</code> package when you only need the docked panel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Command Categories -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Command Registry · 98 Registered Commands</span>
+          <h2>8 Photoshop categories, transparently verified</h2>
+          <p>
+            Every command was tested in Adobe Photoshop 2025 v26.8.1 on Windows 10 x64. <strong>92 of 98 commands are live-verified PASS</strong>; the remaining 6 have clearly documented interactive GPU workspace or Adobe Sensei cloud requirements.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <h3>Tools</h3>
+            <p><span class="badge badge-pass">19 / 19 Verified</span></p>
+            <p>Move, Brush, Clone Stamp, Healing, Spot Healing, Eraser, Gradient, Pen, Type, Crop, Marquee, Lasso, Quick &amp; Object Selection.</p>
+          </div>
+          <div class="card">
+            <h3>Filters &amp; Effects</h3>
+            <p><span class="badge badge-warn">13 / 17 Verified · 4 GPU</span></p>
+            <p>Gaussian, Motion &amp; Surface Blur, Smart Sharpen, Unsharp Mask, High Pass, Noise, Median, Ripple, Twirl, Emboss, Find Edges, plus 4 full-screen GPU workspaces.</p>
+          </div>
+          <div class="card">
+            <h3>Adjustments</h3>
+            <p><span class="badge badge-pass">15 / 15 Verified</span></p>
+            <p>Non-destructive adjustment layers: Curves, Levels, Brightness/Contrast, Exposure, Hue/Saturation, Color Balance, B&amp;W, Vibrance, Gradient Map, and more.</p>
+          </div>
+          <div class="card">
+            <h3>Layers</h3>
+            <p><span class="badge badge-pass">14 / 14 Verified</span></p>
+            <p>New, Duplicate, Delete, inline Rename, Merge, Group/Ungroup, Lock/Unlock, Convert to Smart Object, Rasterize, Clipping &amp; Layer Masks.</p>
+          </div>
+          <div class="card">
+            <h3>Selections</h3>
+            <p><span class="badge badge-warn">8 / 10 Verified · 2 Sensei</span></p>
+            <p>Select All, Deselect, Reselect, Inverse, Feather, Expand, Contract, Smooth, plus Adobe Sensei Select Subject &amp; Remove Background.</p>
+          </div>
+          <div class="card">
+            <h3>Document &amp; Canvas</h3>
+            <p><span class="badge badge-pass">11 / 11 Verified</span></p>
+            <p>New Document, Image Size, Canvas Size, Crop to Selection, Rotate 90° CW/CCW, Flip Horizontal/Vertical, Guide Layout, Grid, Document Info.</p>
+          </div>
+          <div class="card">
+            <h3>View</h3>
+            <p><span class="badge badge-pass">7 / 7 Verified</span></p>
+            <p>Fit on Screen, 100% Actual Pixels, Zoom In, Zoom Out, Show/Hide Guides, Show/Hide Rulers, and Show/Hide Extras.</p>
+          </div>
+          <div class="card">
+            <h3>Export</h3>
+            <p><span class="badge badge-pass">5 / 5 Verified</span></p>
+            <p>Quick Export as PNG, Export as JPEG, Save a Copy, Export As dialog, and Export Selected Layers.</p>
+          </div>
+        </div>
+
+        <p style="margin-top: 22px;">
+          <a class="btn btn-secondary btn-sm" href="./documentation/#command-matrix">Inspect the complete 98-command verification matrix →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- VAYRO Theme Studio Showcase -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-info">VAYRO Theme Studio</span>
+          <h2>Customize your command palette without restarting Photoshop</h2>
+          <p>
+            Choose from 6 built-in themes — <strong>Aurora</strong>, <strong>Ember</strong>, <strong>Crimson</strong>, <strong>Arctic</strong>, <strong>Emerald</strong>, and <strong>Monochrome</strong> — or edit all 8 HEX tokens, 1/2/3-color gradients, glow intensity, surface style, opacity (<code>0.72–1.00</code>), corner radius, and UI density.
+          </p>
+        </div>
+
+        <div class="grid-2" style="align-items: start;">
+          <div class="theme-studio-box">
+            <h3 style="margin-top:0;">Interactive Preset Palette Preview</h3>
+            <p style="color:var(--text-secondary);font-size:0.93rem;">Click a built-in preset to preview its exact color palette from <code>themeSystem.js</code>:</p>
+            <div class="preset-buttons" role="group" aria-label="VAYRO Theme Studio presets">
+              <button class="preset-btn active" type="button" data-preset="aurora" aria-pressed="true"><span class="preset-dot" style="background:#4EA5FF"></span>Aurora</button>
+              <button class="preset-btn" type="button" data-preset="ember" aria-pressed="false"><span class="preset-dot" style="background:#FF454F"></span>Ember</button>
+              <button class="preset-btn" type="button" data-preset="crimson" aria-pressed="false"><span class="preset-dot" style="background:#E83E5B"></span>Crimson</button>
+              <button class="preset-btn" type="button" data-preset="arctic" aria-pressed="false"><span class="preset-dot" style="background:#18D4E8"></span>Arctic</button>
+              <button class="preset-btn" type="button" data-preset="emerald" aria-pressed="false"><span class="preset-dot" style="background:#00B88A"></span>Emerald</button>
+              <button class="preset-btn" type="button" data-preset="monochrome" aria-pressed="false"><span class="preset-dot" style="background:#E8EAF0"></span>Monochrome</button>
+            </div>
+
+            <div class="mini-palette" data-mini-palette>
+              <div class="mini-palette-inner" data-mini-inner>
+                <div class="mini-search" data-mini-search>Search commands, tools, effects... (EN / <span lang="fa" dir="rtl">فارسی</span>)</div>
+                <div class="mini-row selected" data-mini-selected>
+                  <span><strong>Gaussian Blur</strong> · Filters / Blur</span>
+                  <span style="color:#ffd67a;">★</span>
+                </div>
+                <div class="mini-row" data-mini-row>
+                  <span><strong>Curves</strong> · Adjustments / Tone</span>
+                  <span style="color:#ffd67a;">★</span>
+                </div>
+                <div class="mini-row" data-mini-row>
+                  <span><strong>Crop Tool</strong> · Tools / Transform</span>
+                  <kbd>C</kbd>
+                </div>
+              </div>
+            </div>
+            <div class="swatch-row" data-mini-tokens>Aurora (Blue · Violet · Pink) · Primary #4EA5FF · Secondary #8B5CF6 · Tertiary #EC69B9 · BG #111522</div>
+          </div>
+
+          <div class="screenshot-frame">
+            <picture>
+              <source srcset="./assets/images/quiet-trigger-theme-studio.webp" type="image/webp" />
+              <img src="./assets/images/quiet-trigger-theme-studio.png" alt="Real screenshot of VAYRO Theme Studio showing Live Preview, 6 built-in presets, and 8-token HEX color editor" width="828" height="728" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 24px;">
+          <figure style="margin:0;">
+            <div class="screenshot-frame">
+              <picture>
+                <source srcset="./assets/images/quiet-trigger-ember.webp" type="image/webp" />
+                <img src="./assets/images/quiet-trigger-ember.png" alt="Quiet Trigger floating palette using the built-in Ember preset" width="828" height="728" loading="lazy" />
+              </picture>
+            </div>
+            <figcaption class="screenshot-caption">Real capture: Floating palette with the built-in Ember preset.</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <div class="screenshot-frame">
+              <picture>
+                <source srcset="./assets/images/quiet-trigger-custom-theme.webp" type="image/webp" />
+                <img src="./assets/images/quiet-trigger-custom-theme.png" alt="Quiet Trigger floating palette using a custom Red and Orange HEX theme" width="828" height="728" loading="lazy" />
+              </picture>
+            </div>
+            <figcaption class="screenshot-caption">Real capture: Floating palette with a custom Red/Orange HEX gradient theme.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Options Comparison -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Verified Release v2.1.0</span>
+          <h2>Choose the right package for your workflow</h2>
+          <p>
+            Both artifacts are published directly on GitHub Releases with SHA-256 checksums. Understand the exact difference before downloading.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card card-highlight">
+            <span class="badge badge-pass" style="margin-bottom: 12px;">Recommended · Complete Windows Package</span>
+            <h3>Complete Windows Installer (<code>.exe</code>)</h3>
+            <p><strong>File:</strong> <code>VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe</code> (23.78 MB)</p>
+            <ul>
+              <li>Installs the Adobe Photoshop UXP plugin (<code>.ccx</code>) via official Adobe UPIA</li>
+              <li>Installs the floating Windows WPF palette (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd>)</li>
+              <li>Includes silent system tray helper (<code>QuietTriggerHelper.exe</code>) and bundled portable Node.js runtime for the local loopback bridge</li>
+              <li>Per-user install (no administrator prompt, no global Node.js or AutoHotkey required)</li>
+            </ul>
+            <p style="margin-top: 18px;">
+              <a class="btn btn-primary btn-sm" href="https://github.com/vayrodev/vayro-quiet-trigger/releases/download/v2.1.0/VAYRO-Quiet-Trigger-Setup-2.1.0-x64.exe">Download Windows Installer</a>
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="badge badge-info" style="margin-bottom: 12px;">Docked Panel Only</span>
+            <h3>Photoshop-Only UXP Package (<code>.ccx</code>)</h3>
+            <p><strong>File:</strong> <code>VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx</code> (74.3 KB)</p>
+            <ul>
+              <li>Installs the docked <strong>Quiet Trigger</strong> panel inside Adobe Photoshop (UXP Manifest v5, API v2)</li>
+              <li>All 98 commands, English/Persian fuzzy search, Favorites, Recents, and VAYRO Theme Studio inside the panel</li>
+              <li><strong>Does not install</strong> the floating Windows companion, system tray helper, or global <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd> hotkey</li>
+              <li>Install via Adobe Creative Cloud Desktop or Adobe's official UPIA CLI</li>
+            </ul>
+            <p style="margin-top: 18px;">
+              <a class="btn btn-secondary btn-sm" href="https://github.com/vayrodev/vayro-quiet-trigger/releases/download/v2.1.0/VAYRO-Quiet-Trigger-Photoshop-2.1.0.ccx">Download Photoshop CCX</a>
+            </p>
+          </article>
+        </div>
+
+        <div class="callout callout-info" style="margin-top: 22px;">
+          <div class="callout-title">Adobe Creative Cloud Marketplace Status</div>
+          <p style="margin:0;color:var(--text-secondary);">
+            Quiet Trigger is distributed independently today via GitHub Releases. An Adobe Creative Cloud Marketplace listing is currently in draft preparation under a dedicated Marketplace plugin ID and is <strong>not yet submitted or approved by Adobe</strong>. A direct Marketplace link will be added here only after official approval is received.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security & Compatibility Summary -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="grid-2">
+          <div class="card">
+            <span class="badge badge-pass" style="margin-bottom: 10px;">Security &amp; Privacy</span>
+            <h3>Local-only architecture by design</h3>
+            <ul>
+              <li><strong>Strict loopback binding:</strong> Bridge server binds only to <code>127.0.0.1:47821</code>, never external interfaces.</li>
+              <li><strong>256-bit constant-time auth:</strong> Random per-user token verified with <code>crypto.timingSafeEqual</code>; unauthorized calls return HTTP <code>401</code>.</li>
+              <li><strong>Zero telemetry:</strong> Quiet Trigger makes zero outbound Internet requests and collects no analytics, prompts, or artwork.</li>
+              <li><strong>Transparent code signing status:</strong> v2.1.0 is an unsigned open-source build — always verify SHA-256 checksums before running the installer.</li>
+            </ul>
+            <p style="margin-top:14px;"><a href="./privacy/">Read Privacy Policy →</a> · <a href="./documentation/#security">Security Architecture →</a></p>
+          </div>
+
+          <div class="card">
+            <span class="badge badge-info" style="margin-bottom: 10px;">Compatibility</span>
+            <h3>Verified host &amp; OS requirements</h3>
+            <ul>
+              <li><strong>Live-verified host:</strong> Adobe Photoshop 2025 v26.8.1 (64-bit) on Windows 10 Enterprise x64.</li>
+              <li><strong>UXP specification:</strong> Manifest v5, Photoshop API v2, manifest <code>minVersion: 24.0.0</code>.</li>
+              <li><strong>Windows Companion:</strong> Windows 10 / Windows 11 (64-bit) for the floating WPF palette and silent system tray helper.</li>
+              <li><strong>Upgrade safe:</strong> Upgrades seamlessly from ZAU Console 2.0.0 while preserving Favorites, Recents, and session configuration.</li>
+            </ul>
+            <p style="margin-top:14px;"><a href="./installation/">Installation &amp; Upgrade Guide →</a> · <a href="./faq/">Read FAQ →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand-link" href="./" style="margin-bottom: 12px;">
+            <img class="brand-icon" src="./assets/icons/favicon.svg" alt="VAYRO Studio icon" width="32" height="32" />
+            <span class="brand-text">
+              <span class="brand-studio">VAYRO Studio</span>
+              <span class="brand-product">Quiet Trigger</span>
+            </span>
+          </a>
+          <p style="color:var(--text-secondary);font-size:0.9rem;margin:0;">
+            Independent open-source software by VAYRO Studio. Licensed under Apache License 2.0. Less searching. More creating.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="./features/">Features &amp; Themes</a></li>
+            <li><a href="./download/">Download v2.1.0</a></li>
+            <li><a href="./installation/">Installation Guide</a></li>
+            <li><a href="./documentation/">Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="./faq/">Frequently Asked Questions</a></li>
+            <li><a href="./support/">Support &amp; Security</a></li>
+            <li><a href="./fa/" hreflang="fa" lang="fa">نسخه فارسی (Persian)</a></li>
+            <li><a href="https://github.com/vayrodev/vayro-quiet-trigger" rel="noopener">GitHub Repository</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Legal &amp; Trust</h3>
+          <ul>
+            <li><a href="./privacy/">Privacy Policy</a></li>
+            <li><a href="./terms/">Terms of Service</a></li>
+            <li><a href="https://github.com/vayrodev/vayro-quiet-trigger/blob/main/LICENSE" rel="noopener">Apache-2.0 License</a></li>
+            <li><a href="https://github.com/vayrodev/vayro-quiet-trigger/blob/main/SECURITY.md" rel="noopener">Security Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VAYRO Studio. Source code licensed under Apache-2.0.</span>
+        <span>Adobe and Photoshop are trademarks of Adobe Inc. Quiet Trigger is an independent third-party plugin and is not affiliated with or endorsed by Adobe Inc.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

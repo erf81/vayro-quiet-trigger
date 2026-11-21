@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vayrodev.github.io/vayro-quiet-trigger/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://vayrodev.github.io/vayro-quiet-trigger/fa/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vayrodev.github.io/vayro-quiet-trigger/" />
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/features/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/download/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/installation/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/documentation/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/faq/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/support/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/privacy/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/terms/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://vayrodev.github.io/vayro-quiet-trigger/fa/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://vayrodev.github.io/vayro-quiet-trigger/fa/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vayrodev.github.io/vayro-quiet-trigger/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vayrodev.github.io/vayro-quiet-trigger/" />
+  </url>
+</urlset>

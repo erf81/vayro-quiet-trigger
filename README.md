@@ -28,7 +28,7 @@
 
 ## Installation Options
 
-Download official verified artifacts from the [v2.1.0 GitHub Release](https://github.com/erf81/vayro-quiet-trigger/releases/tag/v2.1.0):
+Visit the [Official Website](https://vayrodev.github.io/vayro-quiet-trigger/) or download official verified artifacts directly from the [v2.1.0 GitHub Release](https://github.com/vayrodev/vayro-quiet-trigger/releases/tag/v2.1.0):
 
 | Artifact | What It Installs | Recommended For |
 |---|---|---|

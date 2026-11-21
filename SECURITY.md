@@ -21,5 +21,5 @@
 
 ## Reporting Security Issues
 - **Do not** disclose suspected security vulnerabilities or leaked credentials in public issues or pull requests.
-- Report security concerns privately via GitHub's **Private Vulnerability Reporting** (Security Advisories) on `erf81/vayro-quiet-trigger` once public, or contact the maintainer (`erf81`) through GitHub without including real tokens, passwords, or private Photoshop documents.
+- Report security concerns privately via GitHub's **Private Vulnerability Reporting** (Security Advisories) on `vayrodev/vayro-quiet-trigger`, or contact the maintainer (`vayrodev`) through GitHub without including real tokens, passwords, or private Photoshop documents.
 - Include the Quiet Trigger version, Windows & Photoshop version, steps to reproduce, and impact assessment. The maintainer reviews all security reports prior to issuing patched releases.
